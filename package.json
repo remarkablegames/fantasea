@@ -1,5 +1,5 @@
 {
-  "name": "kaplay-template",
+  "name": "wave-defense",
   "version": "1.0.0-alpha",
   "description": "A template for building Kaplay games.",
   "author": "Mark <mark@remarkablemark.org>",
@@ -14,7 +14,7 @@
     "preview": "vite preview",
     "start": "vite --open"
   },
-  "homepage": "https://remarkablegames.org/kaplay-template/",
+  "homepage": "https://remarkablegames.org/wave-defense/",
   "dependencies": {
     "kaplay": "3001.0.19"
   },

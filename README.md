@@ -1,17 +1,17 @@
 <p align="center">
-  <img src="https://github.com/remarkablegames/kaplay-template/blob/master/public/logo.png" alt="Kaplay Template">
+  <img src="https://github.com/remarkablegames/wave-defense/blob/master/public/logo.png" alt="Wave Defense">
 </p>
 
-# Kaplay Template
+# Wave Defense
 
-![release](https://img.shields.io/github/v/release/remarkablegames/kaplay-template)
-[![build](https://github.com/remarkablegames/kaplay-template/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/kaplay-template/actions/workflows/build.yml)
+![release](https://img.shields.io/github/v/release/remarkablegames/wave-defense)
+[![build](https://github.com/remarkablegames/wave-defense/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/wave-defense/actions/workflows/build.yml)
 
-<kbd>kaplay-template</kbd> is a template for making [KAPLAY](https://kaplayjs.com/) games.
+Wave defense.
 
 Play the game on:
 
-- [remarkablegames](https://remarkablegames.org/kaplay-template)
+- [remarkablegames](https://remarkablegames.org/wave-defense)
 
 ## Prerequisites
 
@@ -22,8 +22,8 @@ Play the game on:
 Clone the repository:
 
 ```sh
-git clone https://github.com/remarkablegames/kaplay-template.git
-cd kaplay-template
+git clone https://github.com/remarkablegames/wave-defense.git
+cd wave-defense
 ```
 
 Install the dependencies:
