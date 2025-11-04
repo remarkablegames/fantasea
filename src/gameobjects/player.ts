@@ -1,4 +1,5 @@
 import { Sprite, Tag } from '../constants'
+import type { Player } from '../types'
 import { addHealth } from '.'
 
 export function addPlayer(x = center().x, y = center().y) {
@@ -14,4 +15,8 @@ export function addPlayer(x = center().x, y = center().y) {
   addHealth(player)
 
   return player
+}
+
+export function getPlayer() {
+  return get(Tag.Player)[0] as Player | undefined
 }
