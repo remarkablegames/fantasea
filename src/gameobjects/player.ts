@@ -6,8 +6,9 @@ export function addPlayer(x = center().x, y = center().y) {
   const player = add([
     sprite(Sprite.Bean),
     pos(x, y),
-    rotate(0),
     anchor('center'),
+    area(),
+    body({ isStatic: true }),
     health(100, 100),
     Tag.Player,
   ])

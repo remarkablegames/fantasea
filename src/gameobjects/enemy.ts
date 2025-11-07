@@ -8,6 +8,8 @@ export function addEnemy(x: number, y: number) {
     sprite(Sprite.Ghosty),
     pos(x, y),
     anchor('center'),
+    area(),
+    body(),
     health(10, 10),
     Tag.Enemy,
     { speed },
