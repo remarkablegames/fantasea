@@ -31,6 +31,7 @@ export function addEnemy(x: number, y: number) {
 
   enemy.onCollide(Tag.Player, () => {
     getPlayer()?.hurt(damage)
+    enemy.destroy()
   })
 
   return enemy
