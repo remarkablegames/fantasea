@@ -2,6 +2,7 @@ import { Sprite, Tag } from '../constants'
 import { addHealth, getPlayer } from '.'
 
 export function addEnemy(x: number, y: number) {
+  const damage = randi(1, 10)
   const speed = randi(50, 100)
 
   const enemy = add([
@@ -12,7 +13,7 @@ export function addEnemy(x: number, y: number) {
     body(),
     health(10, 10),
     Tag.Enemy,
-    { speed },
+    { damage, speed },
   ])
 
   addHealth(enemy)
@@ -20,12 +21,16 @@ export function addEnemy(x: number, y: number) {
   enemy.onUpdate(() => {
     const player = getPlayer()
 
-    if (!player?.exists()) {
+    if (!player) {
       return
     }
 
     const direction = player.pos.sub(enemy.pos).unit()
     enemy.move(direction.scale(enemy.speed))
+  })
+
+  enemy.onCollide(Tag.Player, () => {
+    getPlayer()?.hurt(damage)
   })
 
   return enemy

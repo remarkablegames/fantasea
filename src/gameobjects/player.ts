@@ -19,5 +19,11 @@ export function addPlayer(x = center().x, y = center().y) {
 }
 
 export function getPlayer() {
-  return get(Tag.Player)[0] as Player | undefined
+  const player = get(Tag.Player)[0] as Player
+
+  if (!player?.exists()) {
+    return
+  }
+
+  return player
 }
