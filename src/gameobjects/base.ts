@@ -19,7 +19,7 @@ export function addBase(x = center().x, y = center().y) {
 }
 
 export function getBase() {
-  const base: Base = get(Tag.Base)[0]
+  const base = get(Tag.Base)[0] as Base
 
   if (!base?.exists()) {
     return
