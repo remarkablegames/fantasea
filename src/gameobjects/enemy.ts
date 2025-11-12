@@ -1,6 +1,8 @@
 import { Sprite, Tag } from '../constants'
 import { addHealth, getBase } from '.'
 
+export type Enemy = ReturnType<typeof addEnemy>
+
 export function addEnemy(x: number, y: number) {
   const damage = randi(1, 10)
   const speed = randi(50, 100)
@@ -29,9 +31,9 @@ export function addEnemy(x: number, y: number) {
     enemy.move(direction.scale(enemy.speed))
   })
 
-  enemy.onCollide(Tag.Base, () => {
-    getBase()?.hurt(damage)
+  enemy.onDeath(() => {
     enemy.destroy()
+    addKaboom(enemy.pos)
   })
 
   return enemy

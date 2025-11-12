@@ -2,6 +2,8 @@ import type { GameObj, HealthComp, PosComp, SpriteComp } from 'kaplay'
 
 const HEIGHT = 5
 
+export type Health = ReturnType<typeof addHealth>
+
 export function addHealth(
   gameObject: GameObj<HealthComp | PosComp | SpriteComp>,
 ) {

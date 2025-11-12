@@ -1,4 +1,5 @@
 import { Scene } from '../constants'
+import { addCollision } from '../events'
 import { addBase, addEnemy, addGunner } from '../gameobjects'
 
 const OFFSET = 0
@@ -7,10 +8,6 @@ scene(Scene.Game, () => {
   addBase()
 
   add([text('Wave: 1', { width: width() / 2 }), pos(12, 12)])
-
-  onClick(() => {
-    addGunner()
-  })
 
   const time = 5
   const maxLoops = 5
@@ -34,4 +31,10 @@ scene(Scene.Game, () => {
     maxLoops,
     true,
   )
+
+  onClick(() => {
+    addGunner()
+  })
+
+  addCollision()
 })

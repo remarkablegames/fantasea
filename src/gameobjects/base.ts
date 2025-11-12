@@ -1,6 +1,7 @@
 import { Sprite, Tag } from '../constants'
-import type { Base } from '../types'
 import { addHealth } from '.'
+
+export type Base = ReturnType<typeof addBase>
 
 export function addBase(x = center().x, y = center().y) {
   const base = add([

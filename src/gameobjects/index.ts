@@ -1,4 +1,6 @@
 export * from './base'
+export * from './bullet'
 export * from './enemy'
 export * from './gunner'
 export * from './health'
+export * from './splash'
