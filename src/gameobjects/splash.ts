@@ -27,6 +27,7 @@ export function addSplash(position: Vec2, direction: Vec2) {
         rate: 0,
         direction: direction.scale(-1).angle(),
         spread: 45,
+        position,
       },
     ),
   ])

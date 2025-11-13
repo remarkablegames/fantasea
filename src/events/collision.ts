@@ -9,7 +9,7 @@ export function addCollision() {
     // @ts-expect-error Types of parameters are incompatible.
     (base: Base, enemy: Enemy) => {
       if (isAlive(base) && isAlive(enemy)) {
-        base.hurt(enemy.damage)
+        base.hp -= enemy.damage
         enemy.destroy()
       }
     },
@@ -23,7 +23,7 @@ export function addCollision() {
       if (isAlive(enemy)) {
         addSplash(bullet.pos, bullet.direction)
         bullet.destroy()
-        enemy.hurt(bullet.damage)
+        enemy.hp -= bullet.damage
       }
     },
   )

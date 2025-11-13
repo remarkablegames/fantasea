@@ -22,7 +22,7 @@ export function addHealth(
 
   function updateHealth() {
     if (gameObject.width) {
-      health.width = (gameObject.hp() / gameObject.maxHP()!) * gameObject.width
+      health.width = (gameObject.hp / gameObject.maxHP) * gameObject.width
     }
   }
 
