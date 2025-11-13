@@ -1,3 +1,4 @@
+export * from './background'
 export * from './base'
 export * from './bullet'
 export * from './enemy'

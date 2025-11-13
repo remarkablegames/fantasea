@@ -1,10 +1,11 @@
 import { Scene } from '../constants'
 import { addCollision } from '../events'
-import { addBase, addEnemy, addGunner } from '../gameobjects'
+import { addBackground, addBase, addEnemy, addGunner } from '../gameobjects'
 
 const OFFSET = 0
 
 scene(Scene.Game, () => {
+  addBackground()
   addBase()
 
   add([text('Wave: 1', { width: width() / 2 }), pos(12, 12)])
