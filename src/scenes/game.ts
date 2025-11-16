@@ -1,26 +1,21 @@
 import { Scene } from '../constants'
-import { enemies } from '../data'
+import { levels } from '../data'
 import { addCollision } from '../events'
 import { addBackground, addBase, addCharacters, addEnemy } from '../gameobjects'
-import { generateEnemyPos } from '../helpers'
 
 scene(Scene.Game, () => {
   addBackground()
   addBase()
+  addCollision()
+  addCharacters()
 
   add([text('Wave: 1', { width: width() / 2 }), pos(12, 12)])
 
-  const time = 5
-  const maxLoops = 5
+  const level = levels[0]
 
-  loop(
-    time,
-    () => addEnemy({ ...enemies[0], ...generateEnemyPos() }),
-    maxLoops,
-    true,
-  )
-
-  addCollision()
-
-  addCharacters()
+  level.enemies.forEach(({ enemy, timer, total }) => {
+    wait(timer.wait, () => {
+      loop(timer.interval, () => addEnemy(enemy), total)
+    })
+  })
 })

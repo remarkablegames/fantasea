@@ -11,5 +11,5 @@ export function generateEnemyPos() {
     y = randi() ? -OFFSET : height() + OFFSET
   }
 
-  return { x, y }
+  return vec2(x, y)
 }

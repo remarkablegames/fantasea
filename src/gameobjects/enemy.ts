@@ -1,22 +1,25 @@
 import { Tag } from '../constants'
 import type { Enemy as Data } from '../data'
+import { generateEnemyPos } from '../helpers'
 import { addHealth, getBase } from '.'
 
 export type Enemy = ReturnType<typeof addEnemy>
 
-export function addEnemy(data: Data & { x: number; y: number }) {
-  const damage = randi(1, 10)
-  const speed = randi(50, 100)
-
+export function addEnemy(data: Data) {
   const enemy = add([
-    sprite(data.sprite, { width: data.width, height: data.height }),
-    pos(data.x, data.y),
+    sprite(data.sprite, {
+      width: data.width,
+      height: data.height,
+    }),
+    pos(generateEnemyPos()),
     anchor('center'),
-    area({ shape: data.shape }),
+    area({
+      shape: data.shape,
+    }),
     body(),
-    health(10, 10),
+    health(data.health, data.health),
     Tag.Enemy,
-    { damage, speed },
+    { damage: data.damage, speed: data.speed },
   ])
 
   addHealth(enemy)
