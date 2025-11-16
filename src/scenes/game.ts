@@ -3,6 +3,7 @@ import { addCollision } from '../events'
 import {
   addBackground,
   addBase,
+  addCharacters,
   addEnemy,
   addFollowMouse,
   addGunner,
@@ -46,4 +47,6 @@ scene(Scene.Game, () => {
   })
 
   addCollision()
+
+  addCharacters()
 })

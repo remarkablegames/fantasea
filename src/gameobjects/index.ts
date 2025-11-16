@@ -1,6 +1,7 @@
 export * from './background'
 export * from './base'
 export * from './bullet'
+export * from './characters'
 export * from './enemy'
 export * from './followMouse'
 export * from './gunner'
