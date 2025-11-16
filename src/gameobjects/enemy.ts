@@ -12,7 +12,7 @@ export function addEnemy(x: number, y: number) {
     scale(0.5),
     pos(x, y),
     anchor('center'),
-    area(),
+    area({ scale: 0.7 }),
     body(),
     health(10, 10),
     Tag.Enemy,
