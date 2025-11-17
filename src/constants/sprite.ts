@@ -1,7 +1,7 @@
 export enum Sprite {
   Background = 'background',
-  Base = 'island',
-  Enemy = 'goblin',
-  Gunner = 'guard',
+  Island = 'island',
+  Goblin = 'goblin',
+  Guard = 'guard',
   Particle = 'particle',
 }

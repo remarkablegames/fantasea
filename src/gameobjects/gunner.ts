@@ -9,7 +9,7 @@ export type Gunner = ReturnType<typeof addGunner>
 
 export function addGunner(position: Vec2) {
   const gunner = add([
-    sprite(Sprite.Gunner),
+    sprite(Sprite.Guard),
     scale(0.5),
     pos(position),
     anchor('center'),
