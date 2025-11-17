@@ -11,6 +11,7 @@ export function addCollision() {
       if (isAlive(base) && isAlive(enemy)) {
         base.hp -= enemy.damage
         enemy.destroy()
+        addKaboom(enemy.pos)
       }
     },
   )
