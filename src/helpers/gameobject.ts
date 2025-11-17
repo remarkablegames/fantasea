@@ -1,7 +1,7 @@
 import type { GameObj, HealthComp } from 'kaplay'
 
 import { Tag } from '../constants'
-import type { Enemy, Gunner } from '../gameobjects'
+import type { Character, Enemy } from '../gameobjects'
 
 export function isAlive(gameObject: GameObj<HealthComp>): boolean {
   return Boolean(gameObject.hp > 0)
@@ -11,11 +11,11 @@ function getEnemies() {
   return get(Tag.Enemy) as Enemy[]
 }
 
-export function getClosestEnemy(gunner: Gunner): Enemy | undefined {
+export function getClosestEnemy(character: Character): Enemy | undefined {
   const enemies = getEnemies()
 
-  const distances = enemies.reduce((dist: number[], zombie) => {
-    dist.push(gunner.pos.dist(zombie.pos))
+  const distances = enemies.reduce((dist: number[], enemy) => {
+    dist.push(character.pos.dist(enemy.pos))
     return dist
   }, [])
 

@@ -7,8 +7,8 @@ export type Health = ReturnType<typeof addHealth>
 export function addHealth(
   gameObject: GameObj<HealthComp | PosComp | SpriteComp>,
 ) {
-  const background = gameObject.add([rect(0, HEIGHT), pos(), color(0, 0, 0)])
-  const health = background.add([rect(0, HEIGHT), pos(), color(255, 0, 0)])
+  const background = gameObject.add([rect(0, HEIGHT), pos(), color(BLACK)])
+  const health = background.add([rect(0, HEIGHT), pos(), color(RED)])
 
   const backgroundEvent = background.onUpdate(() => {
     if (gameObject.width) {

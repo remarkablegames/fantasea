@@ -5,12 +5,11 @@ export type Base = ReturnType<typeof addBase>
 
 export function addBase(x = center().x, y = center().y) {
   const base = add([
-    sprite(Sprite.Island),
-    scale(0.5),
+    sprite(Sprite.Island, { width: 212, height: 106 }),
     pos(x, y),
     anchor('center'),
     area({
-      shape: new Polygon([vec2(0, -100), vec2(180, 20), vec2(-170, 10)]),
+      shape: new Polygon([vec2(0, -50), vec2(90, 10), vec2(-80, 5)]),
     }),
     body({ isStatic: true }),
     health(100, 100),
@@ -18,6 +17,16 @@ export function addBase(x = center().x, y = center().y) {
   ])
 
   addHealth(base)
+
+  base.add([
+    rect(50, 50),
+    outline(3),
+    color(WHITE),
+    opacity(0.5),
+    pos(0, -20),
+    anchor('center'),
+    Tag.Dropzone,
+  ])
 
   return base
 }

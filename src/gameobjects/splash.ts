@@ -4,8 +4,6 @@ import { Sprite } from '../constants'
 
 let particleSpriteData: SpriteData
 
-export type Splash = ReturnType<typeof addSplash>
-
 export function addSplash(position: Vec2, direction: Vec2) {
   particleSpriteData = particleSpriteData || getSprite(Sprite.Particle)!.data!
 
