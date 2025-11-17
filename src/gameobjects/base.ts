@@ -25,7 +25,8 @@ export function addBase(x = center().x, y = center().y) {
     opacity(0.5),
     pos(0, -10),
     anchor('center'),
-    Tag.Dropzone,
+    area(),
+    Tag.Droppable,
   ])
 
   return base
