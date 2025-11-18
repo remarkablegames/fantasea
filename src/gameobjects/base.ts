@@ -1,7 +1,7 @@
 import type { Vec2 } from 'kaplay'
 
 import { Scene, Sprite, Tag } from '../constants'
-import { addHealth } from '.'
+import { addDroppable, addHealth } from '.'
 
 export type Base = ReturnType<typeof addBase>
 
@@ -19,17 +19,7 @@ export function addBase(position: Vec2) {
   ])
 
   addHealth(base)
-
-  base.add([
-    rect(50, 50),
-    outline(3),
-    color(WHITE),
-    opacity(0.5),
-    pos(0, -10),
-    anchor('center'),
-    area(),
-    Tag.Droppable,
-  ])
+  addDroppable(base, vec2(0, -10))
 
   base.onDeath(() => {
     base.destroy()
