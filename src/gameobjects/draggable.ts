@@ -4,7 +4,10 @@ import { addHero, getBase } from '.'
 
 export function addDraggable(data: Data) {
   const draggable = add([
-    sprite(data.sprite, { width: data.width, height: data.height }),
+    sprite(data.hero.sprite, {
+      width: data.hero.width,
+      height: data.hero.height,
+    }),
     color(RED),
     opacity(0.5),
     anchor('center'),

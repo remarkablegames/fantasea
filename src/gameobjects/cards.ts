@@ -1,10 +1,10 @@
 import { Z } from '../constants'
-import { heroes } from '../data'
+import type { Hero } from '../data'
 import { addDraggable } from '.'
 
 const HEIGHT = 150
 
-export function addCards() {
+export function addCards(heroes: Hero[]) {
   const background = add([
     rect(width(), HEIGHT),
     pos(0, height() - HEIGHT),
@@ -15,7 +15,10 @@ export function addCards() {
 
   heroes.forEach((data, index) => {
     const card = background.add([
-      sprite(data.sprite, { width: data.width, height: data.height }),
+      sprite(data.hero.sprite, {
+        width: data.hero.width,
+        height: data.hero.height,
+      }),
       pos(index * 10, 10),
       area(),
       z(Z.UI),

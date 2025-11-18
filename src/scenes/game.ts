@@ -5,8 +5,6 @@ import { addBackground, addBase, addCards, addEnemy } from '../gameobjects'
 
 scene(Scene.Game, () => {
   addBackground()
-  addBase(center())
-  addCards()
   addCollision()
 
   add([text(`Wave: ${state.level + 1}`), pos(12, 12)])
@@ -21,6 +19,9 @@ scene(Scene.Game, () => {
     (total, enemy) => total + enemy.total,
     0,
   )
+
+  addBase(center())
+  addCards(level.heroes)
 
   level.enemies.forEach(({ enemy, timer, total }) => {
     wait(timer.wait, () => {
