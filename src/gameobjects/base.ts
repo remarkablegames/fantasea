@@ -32,10 +32,7 @@ export function addBase(position: Vec2) {
 
 export function getBase() {
   const base = get(Tag.Base)[0] as Base
-
-  if (!base?.exists()) {
-    return
+  if (base?.exists()) {
+    return base
   }
-
-  return base
 }
