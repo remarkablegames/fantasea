@@ -17,17 +17,17 @@ export function addCollision() {
   )
 
   onCollide(
-    Tag.Bullet,
+    Tag.Attack,
     Tag.Enemy,
     // @ts-expect-error Types of parameters are incompatible.
-    (bullet: Bullet, enemy: Enemy) => {
+    (attack: Attack, enemy: Enemy) => {
       if (enemy.dead) {
         return
       }
 
-      addSplash(bullet.pos, bullet.direction)
-      bullet.destroy()
-      enemy.hp -= bullet.damage
+      addSplash(attack.pos, attack.direction)
+      attack.destroy()
+      enemy.hp -= attack.damage
     },
   )
 }

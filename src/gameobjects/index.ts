@@ -1,6 +1,6 @@
+export * from './attack'
 export * from './background'
 export * from './base'
-export * from './bullet'
 export * from './cards'
 export * from './draggable'
 export * from './enemy'

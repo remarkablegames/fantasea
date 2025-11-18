@@ -6,9 +6,9 @@ const DAMAGE = 1
 const SIZE = 5
 const SPEED = 300
 
-export type Bullet = ReturnType<typeof addBullet>
+export type Attack = ReturnType<typeof addAttack>
 
-export function addBullet(hero: Hero) {
+export function addAttack(hero: Hero) {
   const enemy = getClosestEnemy(hero)
 
   if (!enemy) {
@@ -17,7 +17,7 @@ export function addBullet(hero: Hero) {
 
   const direction = enemy.pos.sub(hero.pos).unit()
 
-  const bullet = add([
+  const attack = add([
     pos(hero.pos),
     move(direction, SPEED),
     circle(SIZE),
@@ -25,12 +25,12 @@ export function addBullet(hero: Hero) {
     offscreen({ destroy: true }),
     anchor('center'),
     color(BLACK),
-    Tag.Bullet,
+    Tag.Attack,
     {
       damage: DAMAGE,
       direction,
     },
   ])
 
-  return bullet
+  return attack
 }

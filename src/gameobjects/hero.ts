@@ -1,7 +1,7 @@
 import type { Vec2 } from 'kaplay'
 
 import type { Hero as Data } from '../data'
-import { addBullet } from '.'
+import { addAttack } from '.'
 
 export type Hero = ReturnType<typeof addHero>
 
@@ -17,7 +17,7 @@ export function addHero(data: Data, position: Vec2) {
   ])
 
   hero.wait(data.timer.wait, () => {
-    hero.loop(data.timer.interval, () => addBullet(hero))
+    hero.loop(data.timer.interval, () => addAttack(hero))
   })
 
   return hero

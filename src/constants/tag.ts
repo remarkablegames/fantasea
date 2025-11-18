@@ -1,6 +1,6 @@
 export enum Tag {
+  Attack = 'Attack',
   Base = 'Base',
-  Bullet = 'Bullet',
   Draggable = 'Draggable',
   Droppable = 'Droppable',
   Enemy = 'Enemy',
