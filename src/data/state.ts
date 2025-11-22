@@ -1,4 +1,4 @@
-const key = 'remarkablegames.wave-defense'
+const key = 'remarkablegames.fantasea'
 
 class State {
   tempData = {

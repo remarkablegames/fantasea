@@ -1,17 +1,15 @@
 <p align="center">
-  <img src="https://github.com/remarkablegames/wave-defense/blob/master/public/logo.png" alt="Wave Defense">
+  <img src="https://github.com/remarkablegames/fantasea/blob/master/public/logo.png" alt="FantaSea">
 </p>
 
-# Wave Defense
+# FantaSea: Heroes on Vacation
 
-![release](https://img.shields.io/github/v/release/remarkablegames/wave-defense)
-[![build](https://github.com/remarkablegames/wave-defense/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/wave-defense/actions/workflows/build.yml)
-
-Wave defense.
+![release](https://img.shields.io/github/v/release/remarkablegames/fantasea)
+[![build](https://github.com/remarkablegames/fantasea/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/fantasea/actions/workflows/build.yml)
 
 Play the game on:
 
-- [remarkablegames](https://remarkablegames.org/wave-defense)
+- [remarkablegames](https://remarkablegames.org/fantasea)
 
 ## Prerequisites
 
@@ -22,8 +20,8 @@ Play the game on:
 Clone the repository:
 
 ```sh
-git clone https://github.com/remarkablegames/wave-defense.git
-cd wave-defense
+git clone https://github.com/remarkablegames/fantasea.git
+cd fantasea
 ```
 
 Install the dependencies:
