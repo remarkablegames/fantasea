@@ -1,7 +1,7 @@
 import type { GameObj, Vec2 } from 'kaplay'
 
 import { Tag } from '../constants'
-import { getBase } from '.'
+import { getBases } from '.'
 
 export type Droppable = ReturnType<typeof addDroppable>
 
@@ -21,7 +21,7 @@ export function addDroppable(base: GameObj, position: Vec2) {
 }
 
 export function getDroppable() {
-  const droppable = getBase()?.get(Tag.Droppable)[0] as Droppable
+  const droppable = getBases()[0]?.get(Tag.Droppable)[0] as Droppable
   if (droppable?.exists()) {
     return droppable
   }

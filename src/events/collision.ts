@@ -1,12 +1,12 @@
 import { Tag } from '../constants'
-import { addSplash, type Base, type Enemy } from '../gameobjects'
+import { addSplash, type Bases, type Enemy } from '../gameobjects'
 
 export function addCollision() {
   onCollide(
     Tag.Base,
     Tag.Enemy,
     // @ts-expect-error Types of parameters are incompatible.
-    (base: Base, enemy: Enemy) => {
+    (base: Bases[0], enemy: Enemy) => {
       if (base.dead || enemy.dead) {
         return
       }

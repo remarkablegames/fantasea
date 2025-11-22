@@ -1,7 +1,9 @@
-import { goblin, guard } from '.'
+import { goblin, guard, island } from '.'
 
-export type Enemy = (typeof levels)[0]['enemies'][0]['enemy']
-export type Hero = (typeof levels)[0]['heroes'][0]
+type Level = (typeof levels)[0]
+export type Base = Level['bases'][0]
+export type Enemy = Level['enemies'][0]['enemy']
+export type Hero = Level['heroes'][0]
 
 export const levels = [
   // 0
@@ -30,6 +32,12 @@ export const levels = [
           wait: 1,
           interval: 3,
         },
+      },
+    ],
+    bases: [
+      {
+        ...island,
+        pos: center(),
       },
     ],
   },

@@ -1,7 +1,7 @@
 import { Scene, Tag } from '../constants'
 import { type Enemy as Data, state } from '../data'
 import { generateEnemyPos } from '../helpers'
-import { addHealth, getBase } from '.'
+import { addHealth, getBases } from '.'
 
 export type Enemy = ReturnType<typeof addEnemy>
 
@@ -25,13 +25,13 @@ export function addEnemy(data: Data) {
   addHealth(enemy)
 
   enemy.onUpdate(() => {
-    const base = getBase()
+    const bases = getBases()
 
-    if (!base) {
+    if (!bases.length) {
       return
     }
 
-    const direction = base.pos.sub(enemy.pos).unit()
+    const direction = bases[0].pos.sub(enemy.pos).unit()
     enemy.move(direction.scale(enemy.speed))
   })
 
@@ -39,9 +39,9 @@ export function addEnemy(data: Data) {
     enemy.destroy()
     addKaboom(enemy.pos)
     state.tempData.enemiesTotal -= 1
-    const base = getBase()
+    const bases = getBases()
 
-    if (!base || base.dead) {
+    if (!bases.length) {
       return
     }
 

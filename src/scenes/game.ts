@@ -1,7 +1,7 @@
 import { Scene } from '../constants'
 import { levels, state } from '../data'
 import { addCollision } from '../events'
-import { addBackground, addBase, addCards, addEnemy } from '../gameobjects'
+import { addBackground, addBases, addCards, addEnemy } from '../gameobjects'
 
 scene(Scene.Game, () => {
   addBackground()
@@ -20,7 +20,7 @@ scene(Scene.Game, () => {
     0,
   )
 
-  addBase(center())
+  addBases(level.bases)
   addCards(level.heroes)
 
   level.enemies.forEach(({ enemy, timer, total }) => {
