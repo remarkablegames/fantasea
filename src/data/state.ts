@@ -2,6 +2,7 @@ const key = 'remarkablegames.fantasea'
 
 class State {
   tempData = {
+    basesTotal: 0,
     enemiesTotal: 0,
   }
 

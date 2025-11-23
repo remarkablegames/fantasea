@@ -1,5 +1,5 @@
 import { Scene, Tag } from '../constants'
-import type { Base } from '../data'
+import { type Base, state } from '../data'
 import { addDroppable, addHealth } from '.'
 
 export type Bases = ReturnType<typeof addBases>
@@ -24,11 +24,14 @@ export function addBases(bases: Base[]) {
     addHealth(base)
     addDroppable(base, vec2(0, -10))
 
-    // TODO: update when all bases are dead
     base.onDeath(() => {
       base.destroy()
       addKaboom(base.pos)
-      wait(1, () => go(Scene.Lose))
+      state.tempData.basesTotal -= 1
+
+      if (!state.tempData.basesTotal) {
+        wait(1, () => go(Scene.Lose))
+      }
     })
 
     return base

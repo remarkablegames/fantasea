@@ -15,6 +15,8 @@ scene(Scene.Game, () => {
     return go(Scene.Win)
   }
 
+  state.tempData.basesTotal = level.bases.length
+
   state.tempData.enemiesTotal = level.enemies.reduce(
     (total, enemy) => total + enemy.total,
     0,
