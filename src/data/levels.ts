@@ -1,4 +1,4 @@
-import { goblin, guard, island } from '.'
+import { archer, goblin, guard, island, witch } from '.'
 
 type Level = (typeof levels)[0]
 export type Base = Level['bases'][0]
@@ -28,6 +28,20 @@ export const levels = [
     heroes: [
       {
         hero: guard,
+        timer: {
+          wait: 1,
+          interval: 3,
+        },
+      },
+      {
+        hero: witch,
+        timer: {
+          wait: 1,
+          interval: 3,
+        },
+      },
+      {
+        hero: archer,
         timer: {
           wait: 1,
           interval: 3,
