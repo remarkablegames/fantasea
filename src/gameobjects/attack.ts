@@ -1,10 +1,7 @@
 import { Tag } from '../constants'
+import { beachball } from '../data'
 import { getClosestEnemy } from '../helpers'
 import type { Hero } from '.'
-
-const DAMAGE = 1
-const SIZE = 5
-const SPEED = 300
 
 export type Attack = ReturnType<typeof addAttack>
 
@@ -20,15 +17,19 @@ export function addAttack(hero: Hero) {
 
   const attack = add([
     pos(heroPos),
-    move(direction, SPEED),
-    circle(SIZE),
-    area(),
+    move(direction, beachball.speed),
+    sprite(beachball.sprite, {
+      width: beachball.width,
+      height: beachball.height,
+    }),
+    area({
+      shape: beachball.shape,
+    }),
     offscreen({ destroy: true }),
     anchor('center'),
-    color(BLACK),
     Tag.Attack,
     {
-      damage: DAMAGE,
+      damage: beachball.damage,
       direction,
     },
   ])
