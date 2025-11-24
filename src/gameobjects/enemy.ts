@@ -1,7 +1,7 @@
 import { Scene, Tag } from '../constants'
 import { type Enemy as Data, state } from '../data'
 import { generateEnemyPos } from '../helpers'
-import { addHealth, getBases, getRoot } from '.'
+import { addHealth, getBases, getRandomBase, getRoot } from '.'
 
 export type Enemy = ReturnType<typeof addEnemy>
 
@@ -21,19 +21,25 @@ export function addEnemy(data: Data) {
     body(),
     health(data.health, data.health),
     Tag.Enemy,
-    { damage: data.damage, speed: data.speed },
+    {
+      base: getRandomBase(),
+      damage: data.damage,
+      speed: data.speed,
+    },
   ])
 
   addHealth(enemy)
 
   enemy.onUpdate(() => {
-    const bases = getBases()
+    if (enemy.base?.dead) {
+      enemy.base = getRandomBase()
+    }
 
-    if (!bases.length) {
+    if (!enemy.base) {
       return
     }
 
-    const direction = bases[randi(bases.length)].pos.sub(enemy.pos).unit()
+    const direction = enemy.base.pos.sub(enemy.pos).unit()
     enemy.move(direction.scale(enemy.speed))
   })
 

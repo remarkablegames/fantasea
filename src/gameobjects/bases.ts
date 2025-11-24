@@ -44,3 +44,13 @@ export function getBases() {
 
   return bases.filter((base) => !base.dead)
 }
+
+export function getRandomBase() {
+  const bases = getBases()
+
+  if (!bases.length) {
+    return
+  }
+
+  return bases[randi(bases.length)]
+}
