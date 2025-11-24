@@ -22,17 +22,13 @@ scene(Scene.Lose, () => {
   ]
 
   actions.forEach((action, index) => {
-    const button = addButton({
+    addButton({
       label: action.text,
       size: 36,
       width: 200,
       height: 60,
       comps: [pos(x, y + 80 * (index + 1))],
-    })
-
-    button.onClick(() => {
-      setCursor('default')
-      action.callback()
+      onClick: action.callback,
     })
   })
 })

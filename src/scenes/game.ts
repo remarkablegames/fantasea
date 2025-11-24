@@ -36,18 +36,15 @@ scene(Scene.Game, () => {
     width: 150,
     height: 60,
     comps: [pos(90, 90)],
-  })
-
-  startButton.onClick(() => {
-    setCursor('default')
-
-    level.enemies.forEach(({ enemy, timer, total }) => {
-      root.wait(timer.wait, () => {
-        root.loop(timer.interval, () => addEnemy(enemy), total)
+    onClick() {
+      level.enemies.forEach(({ enemy, timer, total }) => {
+        root.wait(timer.wait, () => {
+          root.loop(timer.interval, () => addEnemy(enemy), total)
+        })
       })
-    })
 
-    startButton.destroy()
+      startButton.destroy()
+    },
   })
 
   addBases(level.bases)

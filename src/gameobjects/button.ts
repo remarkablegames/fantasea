@@ -7,6 +7,7 @@ export function addButton({
   height = 80,
   radius = 8,
   size,
+  onClick,
 }: {
   label: string
   comps?: Comp[]
@@ -14,6 +15,7 @@ export function addButton({
   height?: number
   radius?: number
   size?: number
+  onClick?: () => void
 }) {
   const button = add([
     rect(width, height, { radius }),
@@ -40,6 +42,13 @@ export function addButton({
     button.scale = vec2(1)
     button.color = rgb()
   })
+
+  if (typeof onClick === 'function') {
+    button.onClick(() => {
+      setCursor('default')
+      onClick()
+    })
+  }
 
   return button
 }
