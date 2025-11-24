@@ -1,14 +1,11 @@
 import { Scene } from '../constants'
 import { state } from '../data'
+import { addButton } from '../gameobjects'
 
 scene(Scene.Lose, () => {
-  const box = add([pos(center()), anchor('center')])
+  const { x, y } = center()
 
-  const heading = box.add([
-    text('You lost', { size: 72 }),
-    anchor('center'),
-    pos(0, -100),
-  ])
+  add([text('You lost', { size: 72 }), anchor('center'), pos(x, y - 100)])
 
   const actions = [
     {
@@ -25,26 +22,17 @@ scene(Scene.Lose, () => {
   ]
 
   actions.forEach((action, index) => {
-    const button = heading.add([
-      rect(200, 60, { radius: 8 }),
-      area(),
-      color(BLACK),
-      anchor('center'),
-      pos(0, 40 + 80 * (index + 1)),
-    ])
-
-    button.add([text(action.text, { size: 36 }), anchor('center')])
-
-    button.onHover(() => {
-      button.color = BLUE
-      setCursor('pointer')
+    const button = addButton({
+      label: action.text,
+      size: 36,
+      width: 200,
+      height: 60,
+      comps: [pos(x, y + 80 * (index + 1))],
     })
 
-    button.onHoverEnd(() => {
-      button.color = BLACK
+    button.onClick(() => {
       setCursor('default')
+      action.callback()
     })
-
-    button.onClick(action.callback)
   })
 })
