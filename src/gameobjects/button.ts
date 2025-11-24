@@ -1,17 +1,19 @@
 import type { Comp } from 'kaplay'
 
 export function addButton({
-  label = '',
+  label,
   comps = [],
   width = 300,
   height = 80,
   radius = 8,
+  size,
 }: {
-  label?: string
+  label: string
   comps?: Comp[]
   width?: number
   height?: number
   radius?: number
+  size?: number
 }) {
   const button = add([
     rect(width, height, { radius }),
@@ -24,7 +26,7 @@ export function addButton({
     ...comps,
   ])
 
-  button.add([text(label), anchor('center'), color(BLACK)])
+  button.add([text(label, { size }), anchor('center'), color(BLACK)])
 
   button.onHoverUpdate(() => {
     const t = time() * 10

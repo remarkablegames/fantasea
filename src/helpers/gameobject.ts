@@ -1,8 +1,10 @@
 import { Tag } from '../constants'
-import type { Enemy, Hero } from '../gameobjects'
+import { type Enemy, getRoot, type Hero } from '../gameobjects'
 
 function getEnemies() {
-  return get(Tag.Enemy) as Enemy[]
+  const root = getRoot()
+
+  return root.get(Tag.Enemy) as Enemy[]
 }
 
 export function getClosestEnemy(hero: Hero): Enemy | undefined {

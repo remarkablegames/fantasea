@@ -1,13 +1,15 @@
 import type { SpriteData, Vec2 } from 'kaplay'
 
 import { Sprite } from '../constants'
+import { getRoot } from '.'
 
 let particleSpriteData: SpriteData
 
 export function addSplash(position: Vec2, direction: Vec2) {
   particleSpriteData = particleSpriteData || getSprite(Sprite.Particle)!.data!
+  const root = getRoot()
 
-  const splash = add([
+  const splash = root.add([
     pos(position),
     particles(
       {

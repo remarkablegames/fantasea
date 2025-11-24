@@ -1,7 +1,7 @@
 import { Sprite, Tag } from '../constants'
 import { arrow, beachball } from '../data'
 import { getClosestEnemy } from '../helpers'
-import type { Hero } from '.'
+import { getRoot, type Hero } from '.'
 
 export type Attack = ReturnType<typeof addAttack>
 
@@ -28,7 +28,9 @@ export function addAttack(hero: Hero) {
       break
   }
 
-  const attack = add([
+  const root = getRoot()
+
+  const attack = root.add([
     pos(heroPos),
     move(direction, attackData.speed),
     sprite(attackData.sprite, {

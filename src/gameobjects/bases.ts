@@ -1,12 +1,14 @@
 import { Scene, Tag } from '../constants'
 import { type Base, state } from '../data'
-import { addDroppable, addHealth } from '.'
+import { addDroppable, addHealth, getRoot } from '.'
 
 export type Bases = ReturnType<typeof addBases>
 
 export function addBases(bases: Base[]) {
+  const root = getRoot()
+
   return bases.map((data) => {
-    const base = add([
+    const base = root.add([
       sprite(data.sprite, {
         width: data.width,
         height: data.height,
@@ -37,6 +39,8 @@ export function addBases(bases: Base[]) {
 }
 
 export function getBases() {
-  const bases = get(Tag.Base) as Bases
+  const root = getRoot()
+  const bases = root.get(Tag.Base) as Bases
+
   return bases.filter((base) => !base.dead)
 }

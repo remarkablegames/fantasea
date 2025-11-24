@@ -4,4 +4,5 @@ export enum Tag {
   Draggable = 'Draggable',
   Droppable = 'Droppable',
   Enemy = 'Enemy',
+  Root = 'Root',
 }

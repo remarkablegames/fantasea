@@ -1,12 +1,14 @@
 import { Scene, Tag } from '../constants'
 import { type Enemy as Data, state } from '../data'
 import { generateEnemyPos } from '../helpers'
-import { addHealth, getBases } from '.'
+import { addHealth, getBases, getRoot } from '.'
 
 export type Enemy = ReturnType<typeof addEnemy>
 
 export function addEnemy(data: Data) {
-  const enemy = add([
+  const root = getRoot()
+
+  const enemy = root.add([
     sprite(data.sprite, {
       width: data.width,
       height: data.height,

@@ -7,6 +7,7 @@ import {
   addButton,
   addCards,
   addEnemy,
+  addRoot,
 } from '../gameobjects'
 
 scene(Scene.Game, () => {
@@ -26,6 +27,8 @@ scene(Scene.Game, () => {
     0,
   )
 
+  const root = addRoot()
+
   add([text(`Wave: ${state.level + 1}`), pos(12, 12), z(Z.UI)])
 
   const startButton = addButton({
@@ -39,8 +42,8 @@ scene(Scene.Game, () => {
     setCursor('default')
 
     level.enemies.forEach(({ enemy, timer, total }) => {
-      wait(timer.wait, () => {
-        loop(timer.interval, () => addEnemy(enemy), total)
+      root.wait(timer.wait, () => {
+        root.loop(timer.interval, () => addEnemy(enemy), total)
       })
     })
 
