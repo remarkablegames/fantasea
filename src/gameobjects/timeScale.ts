@@ -6,7 +6,6 @@ const PADDING = 10
 const OFFSET = 40
 
 export function addTimeScale() {
-  const root = getRoot()
   const speeds = ['⏩︎1', '⏩︎2', '⏩︎4', '⏩︎8']
 
   speeds.reverse().forEach((speed, index) => {
@@ -19,9 +18,17 @@ export function addTimeScale() {
       zIndex: Z.UI,
       onClick() {
         const timeScale = Number(speed.replace(/^\D+/g, ''))
-        debug.timeScale = timeScale
-        root.trigger(Event.TimeScale)
+        triggerTimeScale(timeScale)
       },
     })
   })
+}
+
+function triggerTimeScale(timeScale: number) {
+  debug.timeScale = timeScale
+  getRoot().trigger(Event.TimeScale)
+}
+
+export function onTimeScale(action: () => void) {
+  getRoot().on(Event.TimeScale, action)
 }
