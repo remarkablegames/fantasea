@@ -8,6 +8,7 @@ import {
   addCards,
   addEnemy,
   addRoot,
+  addTimeScale,
 } from '../gameobjects'
 
 scene(Scene.Game, () => {
@@ -47,6 +48,7 @@ scene(Scene.Game, () => {
     },
   })
 
+  addTimeScale()
   addBases(level.bases)
   addCards(level.heroes)
 })

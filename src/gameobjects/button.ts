@@ -1,21 +1,23 @@
 import type { Comp } from 'kaplay'
 
 export function addButton({
-  label,
   comps = [],
-  width = 300,
   height = 80,
+  label,
+  onClick,
   radius = 8,
   size,
-  onClick,
+  width = 300,
+  zIndex = 0,
 }: {
-  label: string
   comps?: Comp[]
-  width?: number
   height?: number
+  label: string
+  onClick?: () => void
   radius?: number
   size?: number
-  onClick?: () => void
+  width?: number
+  zIndex?: number
 }) {
   const button = add([
     rect(width, height, { radius }),
@@ -25,10 +27,11 @@ export function addButton({
     outline(4),
     color(),
     opacity(0.8),
+    z(zIndex),
     ...comps,
   ])
 
-  button.add([text(label, { size }), anchor('center'), color(BLACK)])
+  button.add([text(label, { size }), anchor('center'), color(BLACK), z(zIndex)])
 
   button.onHoverUpdate(() => {
     const t = time() * 10
