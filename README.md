@@ -30,6 +30,7 @@ Play the game on:
 
 ### Sounds
 
+- [Fist Punch or kick](https://pixabay.com/sound-effects/fist-punch-or-kick-7171/)
 - [Mouse click](https://pixabay.com/sound-effects/mouse-click-290204/)
 
 ## Prerequisites

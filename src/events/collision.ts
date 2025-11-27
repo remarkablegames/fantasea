@@ -1,4 +1,4 @@
-import { Tag } from '../constants'
+import { Sound, Tag } from '../constants'
 import { addSplash, type Bases, type Enemy } from '../gameobjects'
 
 export function addCollision() {
@@ -11,6 +11,7 @@ export function addCollision() {
         return
       }
 
+      play(Sound.Hit)
       base.hp -= enemy.damage
       enemy.hp = 0
     },
@@ -25,6 +26,7 @@ export function addCollision() {
         return
       }
 
+      play(Sound.Hit)
       addSplash(attack.pos, attack.direction)
       attack.destroy()
       enemy.hp -= attack.damage
