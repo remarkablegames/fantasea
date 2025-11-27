@@ -4,6 +4,7 @@ import {
   goblin,
   guard,
   island,
+  orc,
   slime,
   witch,
   yellowstone,
@@ -75,6 +76,21 @@ export const levels = [
         timer: {
           wait: 3,
           interval: 3,
+        },
+      },
+      {
+        total: 2,
+        enemy: {
+          ...orc,
+          damage: 3,
+          get speed() {
+            return randi(80, 100)
+          },
+          health: 5,
+        },
+        timer: {
+          wait: 6,
+          interval: 5,
         },
       },
     ],
