@@ -8,3 +8,10 @@ export const goblin = {
   height: 100,
   shape: new Circle(vec2(), 50) as Shape,
 }
+
+export const slime = {
+  sprite: Sprite.Slime,
+  width: 100,
+  height: 101,
+  shape: new Circle(vec2(), 50) as Shape,
+}

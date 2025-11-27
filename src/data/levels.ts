@@ -1,4 +1,13 @@
-import { archer, blackrock, goblin, guard, island, witch, yellowstone } from '.'
+import {
+  archer,
+  blackrock,
+  goblin,
+  guard,
+  island,
+  slime,
+  witch,
+  yellowstone,
+} from '.'
 
 type Level = (typeof levels)[0]
 export type Base = Level['bases'][0]
@@ -12,7 +21,7 @@ export const levels = [
       {
         total: 5,
         enemy: {
-          ...goblin,
+          ...slime,
           damage: 1,
           get speed() {
             return randi(80, 100)
@@ -39,18 +48,33 @@ export const levels = [
   {
     enemies: [
       {
-        total: 10,
+        total: 5,
+        enemy: {
+          ...slime,
+          damage: 1,
+          get speed() {
+            return randi(80, 100)
+          },
+          health: 1,
+        },
+        timer: {
+          wait: 0,
+          interval: 3,
+        },
+      },
+      {
+        total: 5,
         enemy: {
           ...goblin,
-          damage: 1,
+          damage: 2,
           get speed() {
             return randi(100, 120)
           },
           health: 2,
         },
         timer: {
-          wait: 0,
-          interval: 2,
+          wait: 3,
+          interval: 3,
         },
       },
     ],
