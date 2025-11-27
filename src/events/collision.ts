@@ -31,6 +31,10 @@ export function addCollision() {
           play(Sound.Arrow, { volume: 0.5 })
           break
 
+        case Sprite.Beachball:
+          play(Sound.Bounce, { detune: randi(0, 12) * 100 })
+          break
+
         default:
           play(Sound.Hit)
           break

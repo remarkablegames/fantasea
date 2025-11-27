@@ -23,6 +23,7 @@ export function addAttack(hero: Hero) {
       break
     case Sprite.Witch:
       attackData = beachball
+      play(Sound.Bounce)
       break
     case Sprite.Guard:
       attackData = beachball
