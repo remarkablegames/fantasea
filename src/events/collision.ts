@@ -1,5 +1,5 @@
 import { Sound, Tag } from '../constants'
-import { addSplash, type Bases, type Enemy } from '../gameobjects'
+import { addSplash, type Attack, type Bases, type Enemy } from '../gameobjects'
 
 export function addCollision() {
   onCollide(
@@ -22,7 +22,7 @@ export function addCollision() {
     Tag.Enemy,
     // @ts-expect-error Types of parameters are incompatible.
     (attack: Attack, enemy: Enemy) => {
-      if (enemy.dead) {
+      if (!attack || enemy.dead) {
         return
       }
 

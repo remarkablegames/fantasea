@@ -32,6 +32,7 @@ Play the game on:
 
 - [Fist Punch or kick](https://pixabay.com/sound-effects/fist-punch-or-kick-7171/)
 - [Mouse click](https://pixabay.com/sound-effects/mouse-click-290204/)
+- [Real Swish_3](https://pixabay.com/sound-effects/real-swish-3-304242/)
 
 ## Prerequisites
 

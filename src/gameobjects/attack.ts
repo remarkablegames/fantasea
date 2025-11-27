@@ -1,4 +1,4 @@
-import { Sprite, Tag } from '../constants'
+import { Sound, Sprite, Tag } from '../constants'
 import { arrow, beachball } from '../data'
 import { getClosestEnemy } from '../helpers'
 import { getRoot, type Hero } from '.'
@@ -19,6 +19,7 @@ export function addAttack(hero: Hero) {
   switch (hero.sprite) {
     case Sprite.Archer:
       attackData = arrow
+      play(Sound.Swish, { volume: 0.8 })
       break
     case Sprite.Witch:
       attackData = beachball
