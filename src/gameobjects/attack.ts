@@ -73,6 +73,12 @@ export function addAttack(hero: Hero) {
 
   attack.onDeath(() => {
     attack.destroy()
+
+    switch (attack.sprite) {
+      case Sprite.Beachball:
+        play(Sound.Pop, { volume: 0.5 })
+        break
+    }
   })
 
   return attack
