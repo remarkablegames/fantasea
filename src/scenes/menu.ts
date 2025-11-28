@@ -38,7 +38,7 @@ scene(Scene.Menu, () => {
     comps: [pos(x, y + OFFSET_Y + 30)],
     onClick() {
       const music = play(Music.Theme, { loop: true })
-      music.volume = 0.5
+      music.volume = 0.75
       go(Scene.Game)
     },
   })
