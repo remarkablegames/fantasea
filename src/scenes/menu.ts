@@ -3,7 +3,7 @@ import { addButton } from '../gameobjects'
 
 scene(Scene.Menu, () => {
   const colors = ['#8465ec', '#873e84', '#c97373', '#5ba675']
-  const tileSize = 225
+  const tileSize = 100 // sprite height
   const tilesSpeed = 60 // px per second
   let tilesOffset = 0 // current offset over time
 
