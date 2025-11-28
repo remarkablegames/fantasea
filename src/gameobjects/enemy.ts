@@ -46,6 +46,8 @@ export function addEnemy(data: Data) {
   enemy.onDeath(() => {
     enemy.destroy()
     addKaboom(enemy.pos)
+
+    state.temp.enemies.find(({ sprite }) => sprite === enemy.sprite)!.total -= 1
     state.temp.enemiesKilled += 1
     root.trigger(Event.EnemyCounter)
 

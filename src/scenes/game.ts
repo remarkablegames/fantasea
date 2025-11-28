@@ -1,3 +1,5 @@
+import type { TimerController } from 'kaplay'
+
 import { Event, Scene } from '../constants'
 import { levels, state } from '../data'
 import { addCollision } from '../events'
@@ -12,6 +14,7 @@ import {
   addRoot,
   addTimeScale,
   type Hint,
+  onTimeScale,
 } from '../gameobjects'
 
 scene(Scene.Game, () => {
@@ -24,14 +27,46 @@ scene(Scene.Game, () => {
     return go(Scene.Win)
   }
 
+  state.temp.start = false
   state.temp.basesTotal = level.bases.length
+  state.temp.enemies = level.enemies.map(({ total, enemy, timer }) => ({
+    total,
+    sprite: enemy.sprite,
+    timer: { ...timer },
+  }))
   state.temp.enemiesKilled = 0
   state.temp.enemiesTotal = level.enemies.reduce(
-    (sum, enemy) => sum + enemy.total,
+    (sum, { total }) => sum + total,
     0,
   )
 
   const root = addRoot()
+
+  let wait: TimerController | undefined
+  let loop: TimerController | undefined
+
+  function setupTimers() {
+    if (!state.temp.start) {
+      return
+    }
+
+    wait?.cancel()
+    loop?.cancel()
+
+    state.temp.enemies.forEach(({ timer, total }, index) => {
+      root.wait(timer.wait / debug.timeScale, () => {
+        timer.wait = 0
+
+        root.loop(
+          timer.interval / debug.timeScale,
+          () => addEnemy(level.enemies[index].enemy),
+          total,
+        )
+      })
+    })
+  }
+
+  onTimeScale(setupTimers)
 
   const startButton = addButton({
     label: 'Start',
@@ -39,15 +74,11 @@ scene(Scene.Game, () => {
     height: 60,
     comps: [pos(90, 90)],
     onClick() {
-      level.enemies.forEach(({ enemy, timer, total }) => {
-        root.wait(timer.wait, () => {
-          root.loop(timer.interval, () => addEnemy(enemy), total)
-        })
-      })
-
+      state.temp.start = true
       hint?.destroy()
       startButton.destroy()
       root.trigger(Event.EnemyCounter)
+      setupTimers()
     },
   })
 

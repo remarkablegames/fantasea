@@ -18,16 +18,15 @@ export function addHero(data: Data, droppable: Droppable) {
     timer(),
   ])
 
-  let wait: TimerController
-  let loop: TimerController
+  let wait: TimerController | undefined
+  let loop: TimerController | undefined
 
   function setupTimers() {
     wait?.cancel()
     loop?.cancel()
-    const { timeScale } = debug
 
-    wait = hero.wait(data.attack.timer.wait / timeScale, () => {
-      loop = hero.loop(data.attack.timer.interval / timeScale, () =>
+    wait = hero.wait(data.attack.timer.wait / debug.timeScale, () => {
+      loop = hero.loop(data.attack.timer.interval / debug.timeScale, () =>
         addAttack(hero),
       )
     })

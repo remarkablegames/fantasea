@@ -12,7 +12,8 @@ import {
 
 type Level = (typeof levels)[0]
 export type Base = Level['bases'][0]
-export type Enemy = Level['enemies'][0]['enemy']
+export type Enemies = Level['enemies']
+export type Enemy = Enemies[0]['enemy']
 export type Hero = Level['heroes'][0]
 
 export const levels = [

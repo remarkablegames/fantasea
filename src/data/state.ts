@@ -1,10 +1,15 @@
+import type { Sprite } from '../constants'
+import type { Enemies } from '../data'
+
 const key = 'remarkablegames.fantasea'
 
 class State {
   temp = {
     basesTotal: 0,
+    enemies: [] as (Pick<Enemies[0], 'total' | 'timer'> & { sprite: Sprite })[],
     enemiesKilled: 0,
     enemiesTotal: 0,
+    start: false,
   }
 
   private persist = {
