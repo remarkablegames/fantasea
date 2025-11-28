@@ -7,6 +7,7 @@ export enum Sprite {
   Goblin = 'goblin',
   Guard = 'guard',
   Island = 'island',
+  Menu = 'menu',
   Orc = 'orc',
   Particle = 'particle',
   Shore = 'shore',
