@@ -1,4 +1,4 @@
-import { Scene } from '../constants'
+import { Event, Scene } from '../constants'
 import { levels, state } from '../data'
 import { addCollision } from '../events'
 import {
@@ -25,9 +25,9 @@ scene(Scene.Game, () => {
   }
 
   state.temp.basesTotal = level.bases.length
-
+  state.temp.enemiesKilled = 0
   state.temp.enemiesTotal = level.enemies.reduce(
-    (total, enemy) => total + enemy.total,
+    (sum, enemy) => sum + enemy.total,
     0,
   )
 
@@ -47,6 +47,7 @@ scene(Scene.Game, () => {
 
       hint?.destroy()
       startButton.destroy()
+      root.trigger(Event.EnemyCounter)
     },
   })
 

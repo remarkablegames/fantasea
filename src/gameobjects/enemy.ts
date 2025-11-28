@@ -1,4 +1,4 @@
-import { Scene, Tag } from '../constants'
+import { Event, Scene, Tag } from '../constants'
 import { type Enemy as Data, state } from '../data'
 import { generateEnemyPos } from '../helpers'
 import { addHealth, getBases, getRandomBase, getRoot } from '.'
@@ -47,6 +47,7 @@ export function addEnemy(data: Data) {
     enemy.destroy()
     addKaboom(enemy.pos)
     state.temp.enemiesKilled += 1
+    root.trigger(Event.EnemyCounter)
 
     if (!getBases().length) {
       return
