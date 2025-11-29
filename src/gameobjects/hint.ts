@@ -1,7 +1,7 @@
 import { Tag } from '../constants'
 import { hints, state } from '../data'
 
-const width = 400
+const PADDING = 10
 
 export function addHint() {
   const hint = hints[state.level]
@@ -11,22 +11,20 @@ export function addHint() {
   }
 
   const box = add([
-    rect(width, hint.height),
-    anchor('center'),
+    rect(hint.width, hint.height),
     color(BLACK),
     opacity(0.3),
-    pos(215, 175),
+    pos(PADDING, 135),
     Tag.Hint,
   ])
 
   box.add([
     text(hint.text, {
-      align: 'center',
       size: 20,
-      width,
+      width: hint.width,
     }),
-    anchor('center'),
     color(WHITE),
+    pos(PADDING),
   ])
 }
 
