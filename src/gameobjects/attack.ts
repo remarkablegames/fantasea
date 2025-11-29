@@ -45,6 +45,7 @@ export function addAttack(hero: Hero) {
     scale(),
     rotate(),
     health(data.health),
+    lifespan(data.lifespan / debug.timeScale, { fade: 0.5 / debug.timeScale }),
     opacity(),
     offscreen({ destroy: true }),
     Tag.Attack,
@@ -75,13 +76,8 @@ export function addAttack(hero: Hero) {
       attack.onUpdate(() => {
         attack.angle += 300 * dt() // Rotate by 300 degrees per second
       })
-      attack.use(lifespan(1, { fade: 1 }))
       break
   }
-
-  attack.onHurt(() => {
-    attack.opacity = attack.hp / attack.maxHP
-  })
 
   attack.onDeath(() => {
     attack.destroy()

@@ -9,7 +9,8 @@ export const arrow = {
   shape: new Rect(vec2(), 5, 100) as Shape,
   damage: 1,
   health: 1,
-  speed: 300,
+  lifespan: 1.5,
+  speed: 250,
   timer: {
     wait: 3,
     interval: 3,
@@ -23,6 +24,7 @@ export const beachball = {
   shape: new Circle(vec2(), 50) as Shape,
   damage: 3,
   health: 3,
+  lifespan: 3,
   speed: 100,
   timer: {
     wait: 5,
@@ -36,6 +38,7 @@ export const sword = {
   height: 60,
   shape: new Polygon([vec2(-100, -30), vec2(), vec2()]),
   damage: 1,
+  lifespan: 1,
   health: 10,
   speed: 150,
   timer: {
