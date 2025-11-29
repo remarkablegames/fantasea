@@ -29,3 +29,17 @@ export const beachball = {
     interval: 5,
   },
 }
+
+export const sword = {
+  sprite: Sprite.Sword,
+  width: 100,
+  height: 60,
+  shape: new Polygon([vec2(-100, -30), vec2(), vec2()]),
+  damage: 0.5,
+  health: 10,
+  speed: 150,
+  timer: {
+    wait: 5,
+    interval: 5,
+  },
+}

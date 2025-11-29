@@ -1,5 +1,5 @@
-import { Sound, Sprite, Tag } from '../constants'
-import { arrow, beachball } from '../data'
+import { Anim, Sound, Sprite, Tag } from '../constants'
+import { arrow, beachball, sword } from '../data'
 import { getClosestEnemy } from '../helpers'
 import { getRoot, type Hero } from '.'
 
@@ -22,33 +22,31 @@ export function addAttack(hero: Hero) {
       play(Sound.Swish, { volume: 0.8 })
       break
 
+    case Sprite.Guard:
+      data = sword
+      // TODO: play sound
+      break
+
     case Sprite.Witch:
       data = beachball
       play(Sound.Bounce)
       break
-
-    case Sprite.Guard:
-      data = beachball
-      break
   }
 
-  const root = getRoot()
-
-  const attack = root.add([
+  const attack = getRoot().add([
     pos(heroPos),
-    move(direction, data.speed),
     sprite(data.sprite, {
       width: data.width,
       height: data.height,
+      anim: data.sprite === Sprite.Sword ? Anim.Idle : undefined,
     }),
-    area({
-      shape: data.shape,
-    }),
+    area({ shape: data.shape }),
+    anchor('center'),
+    scale(),
+    rotate(),
     health(data.health),
     opacity(),
-    rotate(enemy.pos.angle(hero.screenPos()!) + 90),
     offscreen({ destroy: true }),
-    anchor('center'),
     Tag.Attack,
     {
       damage: data.damage,
@@ -60,10 +58,24 @@ export function addAttack(hero: Hero) {
   switch (attack.sprite) {
     case Sprite.Arrow:
       attack.tag(Tag.Sharp)
+      attack.angle = enemy.pos.angle(heroPos) + 90
+      attack.use(move(direction, data.speed))
       break
 
     case Sprite.Beachball:
       attack.tag(Tag.Bounce)
+      attack.use(move(direction, data.speed))
+      break
+
+    case Sprite.Sword:
+      attack.tag(Tag.Sharp)
+      attack.anchor = 'right'
+      attack.scaleTo(1.5)
+      attack.play(Anim.Attack)
+      attack.onUpdate(() => {
+        attack.angle += 300 * dt() // Rotate by 300 degrees per second
+      })
+      attack.use(lifespan(1, { fade: 1 }))
       break
   }
 
