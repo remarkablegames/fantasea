@@ -41,8 +41,8 @@ export function addCollision() {
           attack.use(move(attack.direction, attack.speed))
           break
 
-        default:
-          play(Sound.Hit)
+        case Sprite.Sword:
+          play(Sound.Stab, { volume: 0.6 })
           break
       }
     },

@@ -33,6 +33,7 @@ Play the game on:
 - [Arrow Broken Glass #2](https://pixabay.com/sound-effects/arrow-broken-glass-2-388582/)
 - [Bouncing Ball Sound Effect by Engyclick](https://pixabay.com/sound-effects/bouncing-ball-sound-effect-by-engyclick-280716/)
 - [Fist Punch or kick](https://pixabay.com/sound-effects/fist-punch-or-kick-7171/)
+- [Knife Stab Sound Effect](https://pixabay.com/sound-effects/knife-stab-sound-effect-36354/)
 - [Mouse click](https://pixabay.com/sound-effects/mouse-click-290204/)
 - [Pop](https://pixabay.com/sound-effects/pop-423717/)
 - [Real Swish_3](https://pixabay.com/sound-effects/real-swish-3-304242/)
