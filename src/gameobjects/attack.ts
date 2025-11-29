@@ -1,7 +1,7 @@
 import { Anim, Sound, Sprite, Tag } from '../constants'
 import { arrow, beachball, sword } from '../data'
 import { getClosestEnemy } from '../helpers'
-import { getRoot, type Hero } from '.'
+import { type Bases, getRoot, type Hero } from '.'
 
 export type Attack = ReturnType<typeof addAttack>
 
@@ -12,6 +12,7 @@ export function addAttack(hero: Hero) {
     return
   }
 
+  const multiplier = getMultipler(hero)
   const heroPos = hero.screenPos()!
   const direction = enemy.pos.sub(heroPos).unit()
   let data = beachball
@@ -42,17 +43,19 @@ export function addAttack(hero: Hero) {
     }),
     area({ shape: data.shape }),
     anchor('center'),
-    scale(),
+    scale(multiplier.scale),
     rotate(),
-    health(data.health),
-    lifespan(data.lifespan / debug.timeScale, { fade: 0.5 / debug.timeScale }),
+    health(data.health * multiplier.health),
+    lifespan((data.lifespan * multiplier.lifespan) / debug.timeScale, {
+      fade: 0.5 / debug.timeScale,
+    }),
     opacity(),
     offscreen({ destroy: true }),
     Tag.Attack,
     {
-      damage: data.damage,
+      damage: data.damage * multiplier.damage,
       direction,
-      speed: data.speed,
+      speed: data.speed * multiplier.speed,
     },
   ])
 
@@ -90,4 +93,9 @@ export function addAttack(hero: Hero) {
   })
 
   return attack
+}
+
+function getMultipler(hero: Hero) {
+  const base = hero.parent?.parent as Bases[0]
+  return base.multiplier
 }

@@ -19,6 +19,9 @@ export function addBases(bases: Base[]) {
       body({ isStatic: true }),
       health(data.health),
       Tag.Base,
+      {
+        multiplier: { ...data.multiplier },
+      },
     ])
 
     addHealth(base)
