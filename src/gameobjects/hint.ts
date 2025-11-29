@@ -1,36 +1,42 @@
-import type { Comp } from 'kaplay'
+import { Tag } from '../constants'
+import { state } from '../data'
 
-export type Hint = ReturnType<typeof addHint>
+const hints = [
+  // 0
+  {
+    text: 'Drag and drop the hero (bottom) to the island (center) and press "Start"',
+    width: 400,
+    height: 100,
+  },
+]
 
-export function addHint({
-  comps = [],
-  height,
-  radius,
-  size,
-  txt,
-  width,
-}: {
-  comps?: Comp[]
-  height: number
-  onClick?: () => void
-  radius?: number
-  size?: number
-  txt: string
-  width: number
-}) {
-  const hint = add([
-    rect(width, height, { radius }),
+export function addHint() {
+  const hint = hints[state.level]
+
+  if (!hint) {
+    return
+  }
+
+  const box = add([
+    rect(hint.width, hint.height),
     anchor('center'),
     color(BLACK),
     opacity(0.3),
-    ...comps,
+    pos(215, 190),
+    Tag.Hint,
   ])
 
-  hint.add([
-    text(txt, { align: 'center', size, width }),
+  box.add([
+    text(hint.text, {
+      align: 'center',
+      size: 20,
+      width: hint.width,
+    }),
     anchor('center'),
     color(WHITE),
   ])
+}
 
-  return hint
+export function getHint() {
+  return get(Tag.Hint)[0]
 }

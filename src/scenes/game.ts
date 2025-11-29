@@ -13,7 +13,7 @@ import {
   addLevelInfo,
   addRoot,
   addTimeScale,
-  type Hint,
+  getHint,
   onTimeScale,
 } from '../gameobjects'
 
@@ -77,27 +77,14 @@ scene(Scene.Game, () => {
     onClick() {
       setCursor('default')
       state.temp.start = true
-      hint?.destroy()
+      getHint()?.destroy()
       startButton.destroy()
       root.trigger(Event.EnemyCounter)
       setupTimers()
     },
   })
 
-  let hint: Hint | undefined
-
-  switch (state.level) {
-    case 0:
-      hint = addHint({
-        txt: 'Drag and drop the hero (bottom) to the island (center) and press "Start"',
-        width: 400,
-        height: 100,
-        size: 20,
-        comps: [pos(215, 190)],
-      })
-      break
-  }
-
+  addHint()
   addLevelInfo()
   addTimeScale()
   addBases(level.bases)
