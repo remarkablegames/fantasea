@@ -40,6 +40,7 @@ Play the game on:
 - [Real Swish_3](https://pixabay.com/sound-effects/real-swish-3-304242/)
 - [UI Sounds pack 3 (7)](https://pixabay.com/sound-effects/ui-sounds-pack-3-7-359721/)
 - [click button](https://pixabay.com/sound-effects/click-button-131479/)
+- [monster death grunt](https://pixabay.com/sound-effects/monster-death-grunt-131480/)
 - [water drop](https://pixabay.com/sound-effects/water-drop-85731/)
 
 ## Prerequisites

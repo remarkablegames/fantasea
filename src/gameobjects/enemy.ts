@@ -1,4 +1,4 @@
-import { Event, Scene, Tag } from '../constants'
+import { Event, Scene, Sound, Tag } from '../constants'
 import { type Enemy as Data, state } from '../data'
 import { generateEnemyPos } from '../helpers'
 import { addHealth, getBases, getRandomBase, getRoot } from '.'
@@ -46,6 +46,7 @@ export function addEnemy(data: Data) {
   enemy.onDeath(() => {
     enemy.destroy()
     addKaboom(enemy.pos)
+    play(Sound.Grunt, { detune: randi(0, 6) * 100 })
 
     state.temp.enemies.find(({ sprite }) => sprite === enemy.sprite)!.total -= 1
     state.temp.enemiesKilled += 1
