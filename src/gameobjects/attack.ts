@@ -24,7 +24,7 @@ export function addAttack(hero: Hero) {
 
     case Sprite.Guard:
       data = sword
-      // TODO: play sound
+      play(Sound.Swing)
       break
 
     case Sprite.Witch:
