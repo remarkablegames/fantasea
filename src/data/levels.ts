@@ -17,7 +17,7 @@ export type Enemy = Enemies[0]['enemy']
 export type Hero = Level['heroes'][0]
 
 export const levels = [
-  // 0
+  // 1
   {
     heroes: [guard],
     bases: [
@@ -46,24 +46,24 @@ export const levels = [
     ],
   },
 
-  // 1
+  // 2
   {
-    heroes: [guard, witch],
+    heroes: [guard],
     bases: [
       {
         ...island,
         health: 3,
-        pos: vec2(center().x - 150, center().y),
+        pos: vec2(center().x, center().y - 100),
       },
       {
         ...island,
         health: 3,
-        pos: vec2(center().x + 150, center().y),
+        pos: vec2(center().x, center().y + 100),
       },
     ],
     enemies: [
       {
-        total: 10,
+        total: 12,
         enemy: {
           ...slime,
           damage: 1,
@@ -80,7 +80,56 @@ export const levels = [
     ],
   },
 
-  // 2
+  // 3
+  {
+    heroes: [guard, witch],
+    bases: [
+      {
+        ...island,
+        health: 3,
+        pos: vec2(center().x - 200, center().y),
+      },
+      {
+        ...island,
+        health: 3,
+        pos: vec2(center().x + 200, center().y),
+      },
+    ],
+    enemies: [
+      {
+        total: 6,
+        enemy: {
+          ...slime,
+          damage: 1,
+          get speed() {
+            return randi(80, 100)
+          },
+          health: 1,
+        },
+        timer: {
+          wait: 0,
+          interval: 2,
+        },
+      },
+      {
+        total: 2,
+        enemy: {
+          ...goblin,
+          damage: 2,
+          get speed() {
+            return randi(100, 120)
+          },
+          health: 2,
+        },
+        timer: {
+          wait: 3,
+          interval: 0,
+        },
+      },
+    ],
+  },
+
+  // 4
   {
     heroes: [guard, witch, archer],
     bases: [
