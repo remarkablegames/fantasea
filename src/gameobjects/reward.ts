@@ -76,6 +76,8 @@ export function addReward() {
     (position) => (menu.pos = position),
     easings.easeOutElastic,
   )
+
+  play(Sound.Bounce, { detune: 300 })
 }
 
 interface Reward {
