@@ -1,5 +1,6 @@
 import { Scene, Tag } from '../constants'
 import { type Base, type BaseMultiplier, state } from '../data'
+import { getMultiplierText } from '../helpers'
 import { addDroppable, addHealth, addTooltip, getRoot } from '.'
 
 export type Bases = ReturnType<typeof addBases>
@@ -31,12 +32,7 @@ export function addBases(bases: Base[]) {
     addTooltip({
       width: 240,
       height: 140,
-      text: `Cooldown: ×${multiplier.cooldown.toFixed(2)}
-Damage: ×${multiplier.damage.toFixed(2)}
-Penetration: ×${multiplier.health.toFixed(2)}
-Duration: ×${multiplier.lifespan.toFixed(2)}
-Size: ×${multiplier.scale.toFixed(2)}
-Speed: ×${multiplier.speed.toFixed(2)}`,
+      text: getMultiplierText(multiplier),
       parent: base,
     })
 
