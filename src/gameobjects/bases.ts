@@ -29,13 +29,13 @@ export function addBases(bases: Base[]) {
     addHealth(base)
     addDroppable(base, data.droppable)
     addTooltip({
-      text: `Cooldown: ×${multiplier.cooldown.toFixed(1)}
-Damage: ×${multiplier.damage.toFixed(1)}
-Health: ×${multiplier.health.toFixed(1)}
-Lifespan: ×${multiplier.lifespan.toFixed(1)}
-Scale: ×${multiplier.scale.toFixed(1)}
-Speed: ×${multiplier.speed.toFixed(1)}`,
-      width: 195,
+      text: `Cooldown: ×${multiplier.cooldown.toFixed(2)}
+Damage: ×${multiplier.damage.toFixed(2)}
+Health: ×${multiplier.health.toFixed(2)}
+Lifespan: ×${multiplier.lifespan.toFixed(2)}
+Scale: ×${multiplier.scale.toFixed(2)}
+Speed: ×${multiplier.speed.toFixed(2)}`,
+      width: 205,
       height: 140,
       parent: base,
     })

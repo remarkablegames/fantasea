@@ -10,10 +10,10 @@ export const blackrock = {
   droppable: vec2(0, 12),
   multiplier: {
     cooldown: 1,
-    damage: 1,
-    health: 1,
-    lifespan: 1,
-    scale: 1,
+    damage: 0.5,
+    health: 1.5,
+    lifespan: 1.5,
+    scale: 1.5,
     speed: 1,
   },
 }
@@ -27,8 +27,8 @@ export const island = {
   multiplier: {
     cooldown: 1,
     damage: 1,
-    health: 1,
-    lifespan: 1,
+    health: 1.5,
+    lifespan: 1.5,
     scale: 1,
     speed: 1,
   },
@@ -41,11 +41,11 @@ export const yellowstone = {
   shape: new Polygon([vec2(-15, -50), vec2(90, 30), vec2(-80, 30)]) as Shape,
   droppable: vec2(-16, -5),
   multiplier: {
-    cooldown: 1,
+    cooldown: 0.5,
     damage: 1,
     health: 1,
     lifespan: 1,
-    scale: 1,
-    speed: 1,
+    scale: 0.75,
+    speed: 1.5,
   },
 }
