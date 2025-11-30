@@ -17,19 +17,21 @@ export type Enemy = Enemies[0]['enemy']
 export type Hero = Level['heroes'][0]
 
 export const levels = [
+  // start
+
   // 1
   {
     heroes: [guard],
     bases: [
       {
         ...island,
-        health: 4,
+        health: 3,
         pos: center(),
       },
     ],
     enemies: [
       {
-        total: 5,
+        total: 4,
         enemy: {
           ...slime,
           damage: 1,
@@ -52,18 +54,18 @@ export const levels = [
     bases: [
       {
         ...island,
-        health: 4,
-        pos: vec2(center().sub(0, 100)),
+        health: 3,
+        pos: center().sub(0, 100),
       },
       {
         ...island,
-        health: 4,
-        pos: vec2(center().add(0, 100)),
+        health: 3,
+        pos: center().add(0, 100),
       },
     ],
     enemies: [
       {
-        total: 10,
+        total: 8,
         enemy: {
           ...slime,
           damage: 1,
@@ -87,12 +89,12 @@ export const levels = [
       {
         ...island,
         health: 3,
-        pos: vec2(center().sub(200, 0)),
+        pos: center().sub(200, 0),
       },
       {
         ...island,
         health: 3,
-        pos: vec2(center().add(200, 0)),
+        pos: center().add(200, 0),
       },
     ],
     enemies: [
@@ -136,17 +138,17 @@ export const levels = [
       {
         ...island,
         health: 3,
-        pos: vec2(center().sub(150)),
+        pos: center().sub(150, -100),
       },
       {
-        ...island,
+        ...blackrock,
         health: 3,
-        pos: vec2(center()),
+        pos: center().sub(0, 100),
       },
       {
-        ...island,
+        ...yellowstone,
         health: 3,
-        pos: vec2(center().add(150)),
+        pos: center().add(150, 100),
       },
     ],
     enemies: [
@@ -190,17 +192,101 @@ export const levels = [
       {
         ...island,
         health: 3,
-        pos: center().sub(300, 0),
-      },
-      {
-        ...yellowstone,
-        health: 3,
-        pos: center(),
+        pos: center().add(-150),
       },
       {
         ...blackrock,
         health: 3,
-        pos: center().add(300, 0),
+        pos: center().add(150, -150),
+      },
+      {
+        ...yellowstone,
+        health: 3,
+        pos: center().add(-150, 150),
+      },
+      {
+        ...island,
+        health: 3,
+        pos: center().add(150),
+      },
+    ],
+    enemies: [
+      {
+        total: 5,
+        enemy: {
+          ...slime,
+          damage: 1,
+          get speed() {
+            return randi(80, 100)
+          },
+          health: 1,
+        },
+        timer: {
+          wait: 0,
+          interval: 3,
+        },
+      },
+      {
+        total: 5,
+        enemy: {
+          ...goblin,
+          damage: 2,
+          get speed() {
+            return randi(100, 120)
+          },
+          health: 2,
+        },
+        timer: {
+          wait: 3,
+          interval: 3,
+        },
+      },
+      {
+        total: 1,
+        enemy: {
+          ...orc,
+          damage: 3,
+          get speed() {
+            return randi(80, 100)
+          },
+          health: 5,
+        },
+        timer: {
+          wait: 6,
+          interval: 5,
+        },
+      },
+    ],
+  },
+
+  // 6
+  {
+    heroes: [guard, witch, archer],
+    bases: [
+      {
+        ...island,
+        health: 3,
+        pos: center().sub(200),
+      },
+      {
+        ...blackrock,
+        health: 3,
+        pos: center().add(200, -200),
+      },
+      {
+        ...island,
+        health: 3,
+        pos: center(),
+      },
+      {
+        ...yellowstone,
+        health: 3,
+        pos: center().add(-200, 200),
+      },
+      {
+        ...island,
+        health: 3,
+        pos: center().add(200),
       },
     ],
     enemies: [
@@ -251,4 +337,6 @@ export const levels = [
       },
     ],
   },
+
+  // end
 ]

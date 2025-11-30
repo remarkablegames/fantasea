@@ -33,4 +33,11 @@ export const hints = [
     width: 350,
     height: 60,
   },
+
+  // 6
+  {
+    text: 'Protect the president',
+    width: 280,
+    height: 40,
+  },
 ]

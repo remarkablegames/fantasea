@@ -32,7 +32,7 @@ export function addBases(bases: Base[]) {
     addTooltip({
       width: 240,
       height: 160,
-      text: `Max HP: ${data.health}
+      text: `HP: ${data.health} (Max)
 ${getMultiplierText(multiplier)}`,
       parent: base,
     })
