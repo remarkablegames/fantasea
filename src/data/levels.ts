@@ -52,18 +52,18 @@ export const levels = [
     bases: [
       {
         ...island,
-        health: 3,
+        health: 4,
         pos: vec2(center().x, center().y - 100),
       },
       {
         ...island,
-        health: 3,
+        health: 4,
         pos: vec2(center().x, center().y + 100),
       },
     ],
     enemies: [
       {
-        total: 12,
+        total: 10,
         enemy: {
           ...slime,
           damage: 1,
