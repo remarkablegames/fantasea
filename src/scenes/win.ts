@@ -5,6 +5,8 @@ import { addButton, addConfetti } from '../gameobjects'
 const OFFSET_Y = 70
 
 scene(Scene.Win, () => {
+  debug.timeScale = 1
+
   const { x, y } = center()
 
   add([text('You won!', { size: 72 }), anchor('center'), pos(x, y - OFFSET_Y)])
