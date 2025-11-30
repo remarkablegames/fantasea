@@ -1,13 +1,14 @@
 import type { TimerController } from 'kaplay'
 
-import type { Hero as Data } from '../data'
+import { type BaseMultiplier, type Hero as Data, state } from '../data'
 import { addAttack, type Bases, type Droppable, onTimeScale } from '.'
 
 export type Hero = ReturnType<typeof addHero>
 
 export function addHero(data: Data, droppable: Droppable) {
   droppable.removeAll('*')
-  const multiplier = getMultipler(droppable)
+
+  const multiplier = getMultiplier(data, droppable)
 
   const hero = droppable.add([
     sprite(data.sprite, {
@@ -17,6 +18,9 @@ export function addHero(data: Data, droppable: Droppable) {
     pos(),
     anchor('center'),
     timer(),
+    {
+      multiplier,
+    },
   ])
 
   let wait: TimerController | undefined
@@ -43,7 +47,13 @@ export function addHero(data: Data, droppable: Droppable) {
   return hero
 }
 
-function getMultipler(droppable: Droppable) {
+function getMultiplier(data: Data, droppable: Droppable): BaseMultiplier {
   const base = droppable.parent as Bases[0]
-  return base.multiplier
+  const multiplier = { ...base.multiplier }
+
+  Object.entries(state.multiplier[data.sprite]).forEach(([key, value]) => {
+    multiplier[key as keyof BaseMultiplier] *= value
+  })
+
+  return multiplier
 }

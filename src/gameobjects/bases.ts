@@ -8,11 +8,7 @@ export function addBases(bases: Base[]) {
   const root = getRoot()
 
   return bases.map((data) => {
-    const multiplier = { ...data.multiplier }
-
-    Object.entries(state.multiplier[data.sprite]).forEach(([key, value]) => {
-      multiplier[key as keyof BaseMultiplier] *= value
-    })
+    const multiplier = getMultiplier(data)
 
     const base = root.add([
       sprite(data.sprite, {
@@ -73,4 +69,14 @@ export function getRandomBase() {
   }
 
   return bases[randi(bases.length)]
+}
+
+function getMultiplier(base: Base): BaseMultiplier {
+  const multiplier = { ...base.multiplier }
+
+  Object.entries(state.multiplier[base.sprite]).forEach(([key, value]) => {
+    multiplier[key as keyof BaseMultiplier] *= value
+  })
+
+  return multiplier
 }
