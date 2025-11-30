@@ -31,7 +31,7 @@ export const levels = [
     ],
     enemies: [
       {
-        total: 4,
+        total: 3,
         enemy: {
           ...slime,
           damage: 1,
@@ -153,7 +153,7 @@ export const levels = [
     ],
     enemies: [
       {
-        total: 6,
+        total: 5,
         enemy: {
           ...slime,
           damage: 1,
@@ -168,7 +168,7 @@ export const levels = [
         },
       },
       {
-        total: 6,
+        total: 5,
         enemy: {
           ...goblin,
           damage: 2,
