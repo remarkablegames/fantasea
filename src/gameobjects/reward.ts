@@ -1,5 +1,5 @@
-import { Sound, Sprite } from '../constants'
-import { type BaseMultiplier, rewards } from '../data'
+import { Scene, Sound, Sprite } from '../constants'
+import { type BaseMultiplier, rewards, state } from '../data'
 import { addModal } from '.'
 
 const PADDING = 20
@@ -59,13 +59,22 @@ export function addReward() {
     })
 
     choice.onClick(() => {
+      state.multiplier[reward.sprite] = {
+        ...state.multiplier[reward.sprite],
+        ...reward.multiplier,
+      }
       play(Sound.Click)
       modal.destroy()
+      go(Scene.Game)
     })
   })
 }
 
-type Reward = Partial<BaseMultiplier> & { sprite: Sprite; text: string }
+interface Reward {
+  sprite: Sprite
+  text: string
+  multiplier: Partial<BaseMultiplier>
+}
 
 function getRewards(): Reward[] {
   const multipliers = chooseMultiple(rewards.multipliers, 1)

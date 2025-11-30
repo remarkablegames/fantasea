@@ -1,5 +1,5 @@
-import type { Sprite } from '../constants'
-import type { Enemies } from '../data'
+import { Sprite } from '../constants'
+import type { BaseMultiplier, Enemies } from '../data'
 
 const key = 'remarkablegames.fantasea'
 
@@ -15,6 +15,29 @@ class State {
   private init() {
     return {
       level: 0,
+
+      multiplier: [
+        Sprite.Archer,
+        Sprite.Blackrock,
+        Sprite.Guard,
+        Sprite.Island,
+        Sprite.Witch,
+        Sprite.Yellowstone,
+      ].reduce(
+        (multiplier, sprite) => {
+          multiplier[sprite] = {
+            cooldown: 1,
+            damage: 1,
+            health: 1,
+            lifespan: 1,
+            scale: 1,
+            speed: 1,
+          }
+
+          return multiplier
+        },
+        {} as Record<Sprite, BaseMultiplier>,
+      ),
     }
   }
 
@@ -23,11 +46,15 @@ class State {
     ...JSON.parse(getData(key)!),
   }
 
+  private save() {
+    setData(key, JSON.stringify(this.persist))
+  }
+
   get level() {
     return this.persist.level
   }
 
-  set level(level: number) {
+  set level(level) {
     if (level === 0) {
       this.persist = this.init()
     } else {
@@ -36,8 +63,19 @@ class State {
     this.save()
   }
 
-  private save() {
-    setData(key, JSON.stringify(this.persist))
+  get multiplier() {
+    return this.persist.multiplier
+  }
+
+  set multiplier(data) {
+    Object.entries(data).forEach(([sprite, multiplier]) => {
+      Object.entries(multiplier).forEach(([key, value]) => {
+        this.persist.multiplier[sprite as Sprite][
+          key as keyof BaseMultiplier
+        ] *= value
+      })
+    })
+    this.save()
   }
 }
 

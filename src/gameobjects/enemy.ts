@@ -1,7 +1,7 @@
-import { Event, Scene, Sound, Tag } from '../constants'
+import { Event, Sound, Tag } from '../constants'
 import { type Enemy as Data, state } from '../data'
 import { generateEnemyPos } from '../helpers'
-import { addHealth, getBases, getRandomBase, getRoot } from '.'
+import { addHealth, addReward, getBases, getRandomBase, getRoot } from '.'
 
 export type Enemy = ReturnType<typeof addEnemy>
 
@@ -62,7 +62,7 @@ export function addEnemy(data: Data) {
 
     if (currentState.enemiesKilled === currentState.enemiesTotal) {
       state.level += 1
-      wait(1, () => go(Scene.Game))
+      wait(1, () => addReward())
     }
   })
 
