@@ -5,7 +5,6 @@ import { Sprite } from '../constants'
 export const arrow = {
   sprite: Sprite.Arrow,
   width: 17,
-  height: 100,
   shape: new Rect(vec2(), 5, 100) as Shape,
   damage: 1,
   health: 1,
@@ -20,7 +19,6 @@ export const arrow = {
 export const beachball = {
   sprite: Sprite.Beachball,
   width: 100,
-  height: 100,
   shape: new Circle(vec2(), 50) as Shape,
   damage: 3,
   health: 3,
@@ -35,7 +33,6 @@ export const beachball = {
 export const sword = {
   sprite: Sprite.Sword,
   width: 100,
-  height: 60,
   shape: new Polygon([vec2(-100, -30), vec2(), vec2()]),
   damage: 1,
   lifespan: 1,

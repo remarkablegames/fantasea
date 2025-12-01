@@ -14,7 +14,6 @@ export function addBases(bases: Base[]) {
     const base = root.add([
       sprite(data.sprite, {
         width: data.width,
-        height: data.height,
       }),
       pos(data.pos),
       anchor('center'),

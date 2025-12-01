@@ -13,7 +13,6 @@ export function addHero(data: Data, droppable: Droppable) {
   const hero = droppable.add([
     sprite(data.sprite, {
       width: data.width,
-      height: data.height,
     }),
     pos(),
     anchor('center'),

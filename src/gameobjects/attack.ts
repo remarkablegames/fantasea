@@ -38,7 +38,6 @@ export function addAttack(hero: Hero) {
     pos(heroPos),
     sprite(data.sprite, {
       width: data.width,
-      height: data.height,
       anim: data.sprite === Sprite.Sword ? Anim.Idle : undefined,
     }),
     area({ shape: data.shape }),

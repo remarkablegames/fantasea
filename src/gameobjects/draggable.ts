@@ -6,7 +6,6 @@ export function addDraggable(hero: Hero) {
   const draggable = add([
     sprite(hero.sprite, {
       width: hero.width,
-      height: hero.height,
     }),
     color(RED),
     opacity(0.5),
