@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/remarkablegames/fantasea/blob/master/public/logo.png?raw=true" alt="FantaSea: Heroes on Vacation" width="400">
+  <img src="public/logo.png" alt="FantaSea: Heroes on Vacation" width="400">
 </p>
 
 # FantaSea: Heroes on Vacation
