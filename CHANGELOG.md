@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.3](https://github.com/remarkablegames/fantasea/compare/v1.0.2...v1.0.3) (2025-12-28)
+
+
+### Continuous Integration
+
+* **github:** configure ad-hoc signing for mac and fix zip archive ([e97df48](https://github.com/remarkablegames/fantasea/commit/e97df485e5cce5fde279bb8efa4084a4274b7e6c))
+* **github:** fix bundle script for windows during release ([e147d38](https://github.com/remarkablegames/fantasea/commit/e147d38a41c49a75a731f9264f2601bc66991a10))
+
 ## [1.0.2](https://github.com/remarkablegames/fantasea/compare/v1.0.1...v1.0.2) (2025-12-28)
 
 
