@@ -44,6 +44,7 @@ jobs:
         run: npm ci --prefer-offline
 
       - name: Build game
+        shell: bash
         run: npm run bundle
 
       - name: Get variables
