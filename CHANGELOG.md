@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/remarkablegames/fantasea/compare/v1.0.0...v1.0.1) (2025-12-28)
+
+
+### Continuous Integration
+
+* **github:** don't include zip in bundle during release ([c7db058](https://github.com/remarkablegames/fantasea/commit/c7db05815c5f805eb4f9955d490d95554c39bde2))
+
 ## 1.0.0 (2025-12-01)
 
 
