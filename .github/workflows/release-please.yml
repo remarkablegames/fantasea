@@ -64,6 +64,8 @@ jobs:
           window-title: ${{ steps.vars.outputs.window_title }}
           window-width: 1920
           window-height: 1080
+        env:
+          APPLE_SIGNING_IDENTITY: '-'
 
       - name: Setup butler
         uses: remarkablegames/setup-butler@v2
@@ -89,7 +91,8 @@ jobs:
             gh release upload $TAG web.zip
           fi
 
-          zip -r $CHANNEL.zip ${{ steps.tauri.outputs.bundle-path }}
+          cd ${{ steps.tauri.outputs.bundle-path }}
+          zip -r $CHANNEL.zip .
           gh release upload $TAG $CHANNEL.zip
         env:
           GH_TOKEN: ${{ github.token }}
