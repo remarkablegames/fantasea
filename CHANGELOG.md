@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/remarkablegames/fantasea/compare/v1.0.1...v1.0.2) (2025-12-28)
+
+
+### Continuous Integration
+
+* **github:** build desktop apps with tauri during release ([85be348](https://github.com/remarkablegames/fantasea/commit/85be3483b3c3fed411fcd2c837682a9c8545b6e2))
+
 ## [1.0.1](https://github.com/remarkablegames/fantasea/compare/v1.0.0...v1.0.1) (2025-12-28)
 
 
