@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/remarkablegames/fantasea/compare/v1.0.3...v1.0.4) (2025-12-29)
+
+
+### Continuous Integration
+
+* **github:** fix windows release ([c51b4bf](https://github.com/remarkablegames/fantasea/commit/c51b4bf529e7de46c71868ed45a8b9f48ea73ecf))
+
 ## [1.0.3](https://github.com/remarkablegames/fantasea/compare/v1.0.2...v1.0.3) (2025-12-28)
 
 
