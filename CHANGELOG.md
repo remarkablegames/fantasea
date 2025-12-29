@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.8](https://github.com/remarkablegames/fantasea/compare/v1.0.7...v1.0.8) (2025-12-29)
+
+
+### Continuous Integration
+
+* **github:** fix windows bundle zip ([53111ea](https://github.com/remarkablegames/fantasea/commit/53111ea1b2391e997d0696b539863d0605b8628e))
+
 ## [1.0.7](https://github.com/remarkablegames/fantasea/compare/v1.0.6...v1.0.7) (2025-12-29)
 
 
