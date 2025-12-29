@@ -100,7 +100,7 @@ jobs:
       - name: Upload Release Artifact
         if: runner.os == 'Windows'
         working-directory: ${{ steps.tauri.outputs.bundle-path }}
-        shell: powershell
+        shell: pwsh
         run: |
           7z a $CHANNEL.zip .
           gh release upload ${{ needs.release.outputs.tag_name }} $CHANNEL.zip
