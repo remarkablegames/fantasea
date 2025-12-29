@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.9](https://github.com/remarkablegames/fantasea/compare/v1.0.8...v1.0.9) (2025-12-29)
+
+
+### Continuous Integration
+
+* **github:** fix itch.io upload during release on windows ([3227786](https://github.com/remarkablegames/fantasea/commit/32277866e4825b644994f706734df4e339fe7baa))
+
 ## [1.0.8](https://github.com/remarkablegames/fantasea/compare/v1.0.7...v1.0.8) (2025-12-29)
 
 
