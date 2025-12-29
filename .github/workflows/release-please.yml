@@ -56,6 +56,20 @@ jobs:
           echo "CHANNEL=$(echo $RUNNER_OS | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
           echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
 
+      - name: Setup butler
+        uses: remarkablegames/setup-butler@v2
+
+      - name: Upload web build
+        if: runner.os == 'Linux'
+        working-directory: dist
+        run: |
+          butler push . $GITHUB_REPOSITORY:html5 --userversion $VERSION
+          zip -r web.zip .
+          gh release upload ${{ needs.release.outputs.tag_name }} web.zip
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+
       - name: Build app
         uses: remarkablemark/tauri-action@v1
         id: tauri
@@ -68,32 +82,27 @@ jobs:
         env:
           APPLE_SIGNING_IDENTITY: '-'
 
-      - name: Setup butler
-        uses: remarkablegames/setup-butler@v2
-
-      - name: Upload to itch.io
+      - name: Upload app to itch.io
         shell: bash
-        run: |
-          if [[ $CHANNEL == 'macos' ]]; then
-            butler push dist $GITHUB_REPOSITORY:html5 --userversion $VERSION
-          fi
-
-          butler push ${{ steps.tauri.outputs.bundle-path }} $GITHUB_REPOSITORY:$CHANNEL --userversion $VERSION
+        run: butler push ${{ steps.tauri.outputs.bundle-path }} $GITHUB_REPOSITORY:$CHANNEL --userversion $VERSION
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
 
       - name: Upload Release Artifact
-        shell: bash
+        if: runner.os != 'Windows'
+        working-directory: ${{ steps.tauri.outputs.bundle-path }}
         run: |
-          TAG=${{ needs.release.outputs.tag_name }}
-
-          if [[ $CHANNEL == 'macos' ]]; then
-            zip -r web.zip dist
-            gh release upload $TAG web.zip
-          fi
-
-          cd ${{ steps.tauri.outputs.bundle-path }}
           zip -r $CHANNEL.zip .
-          gh release upload $TAG $CHANNEL.zip
+          gh release upload ${{ needs.release.outputs.tag_name }} $CHANNEL.zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Upload Release Artifact
+        if: runner.os == 'Windows'
+        working-directory: ${{ steps.tauri.outputs.bundle-path }}
+        shell: powershell
+        run: |
+          7z a $CHANNEL.zip .
+          gh release upload ${{ needs.release.outputs.tag_name }} $CHANNEL.zip
         env:
           GH_TOKEN: ${{ github.token }}
