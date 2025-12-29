@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/remarkablegames/fantasea/compare/v1.0.4...v1.0.5) (2025-12-29)
+
+
+### Continuous Integration
+
+* **github:** fix zip on windows during release ([eca63c0](https://github.com/remarkablegames/fantasea/commit/eca63c0fc9dad2acd050c5fb668a85a871749949))
+
 ## [1.0.4](https://github.com/remarkablegames/fantasea/compare/v1.0.3...v1.0.4) (2025-12-29)
 
 
