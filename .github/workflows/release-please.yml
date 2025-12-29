@@ -83,26 +83,19 @@ jobs:
           APPLE_SIGNING_IDENTITY: '-'
 
       - name: Upload app to itch.io
-        shell: bash
         run: butler push ${{ steps.tauri.outputs.bundle-path }} $GITHUB_REPOSITORY:$CHANNEL --userversion $VERSION
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
 
       - name: Upload Release Artifact
-        if: runner.os != 'Windows'
         working-directory: ${{ steps.tauri.outputs.bundle-path }}
+        shell: bash
         run: |
-          zip -r $CHANNEL.zip .
-          gh release upload ${{ needs.release.outputs.tag_name }} $CHANNEL.zip
-        env:
-          GH_TOKEN: ${{ github.token }}
-
-      - name: Upload Release Artifact
-        if: runner.os == 'Windows'
-        working-directory: src-tauri/target/release/bundle
-        shell: pwsh
-        run: |
-          7z a $CHANNEL.zip .
+          if [[ $RUNNER_OS == 'Windows' ]]; then
+            7z a -r $CHANNEL.zip ./*
+          else
+            zip -r $CHANNEL.zip .
+          fi
           gh release upload ${{ needs.release.outputs.tag_name }} $CHANNEL.zip
         env:
           GH_TOKEN: ${{ github.token }}
