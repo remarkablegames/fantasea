@@ -83,7 +83,11 @@ jobs:
           APPLE_SIGNING_IDENTITY: '-'
 
       - name: Upload app to itch.io
-        run: butler push ${{ steps.tauri.outputs.bundle-path }} ${{ github.repository }}:${{ env.CHANNEL }} --userversion ${{ env.VERSION }}
+        run: >
+          butler push
+          ${{ steps.tauri.outputs.bundle-path }}
+          ${{ github.repository }}:${{ env.CHANNEL }}
+          --userversion ${{ env.VERSION }}
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
 
