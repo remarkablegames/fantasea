@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.13](https://github.com/remarkablegames/fantasea/compare/v1.0.12...v1.0.13) (2026-01-02)
+
+
+### Miscellaneous Chores
+
+* release 1.0.13 ([1f6b89b](https://github.com/remarkablegames/fantasea/commit/1f6b89b8c3ed56b0e174c86e01de2bb1df25cebd))
+
 ## [1.0.12](https://github.com/remarkablegames/fantasea/compare/v1.0.11...v1.0.12) (2026-01-02)
 
 
