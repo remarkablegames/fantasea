@@ -77,8 +77,7 @@ jobs:
           app-name: ${{ steps.vars.outputs.app_name }}
           app-version: ${{ env.VERSION }}
           window-title: ${{ steps.vars.outputs.window_title }}
-          window-width: 1920
-          window-height: 1080
+          window-fullscreen: true
         env:
           APPLE_SIGNING_IDENTITY: '-'
 
