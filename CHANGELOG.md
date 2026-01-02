@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.12](https://github.com/remarkablegames/fantasea/compare/v1.0.11...v1.0.12) (2026-01-02)
+
+
+### Continuous Integration
+
+* **github:** wrap window title in quotes in release build ([f2ab7f0](https://github.com/remarkablegames/fantasea/commit/f2ab7f07ffa4d7e1a1bc32aa7376accb31b646f6))
+
 ## [1.0.11](https://github.com/remarkablegames/fantasea/compare/v1.0.10...v1.0.11) (2026-01-02)
 
 
