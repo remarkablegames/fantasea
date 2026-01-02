@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.11](https://github.com/remarkablegames/fantasea/compare/v1.0.10...v1.0.11) (2026-01-02)
+
+
+### Bug Fixes
+
+* **tooltip:** render tooltip outside of view to prevent initial flash ([7e06a10](https://github.com/remarkablegames/fantasea/commit/7e06a101d121aad9cb4417125f18f41ef2e6f2b8))
+
 ## [1.0.10](https://github.com/remarkablegames/fantasea/compare/v1.0.9...v1.0.10) (2026-01-02)
 
 
