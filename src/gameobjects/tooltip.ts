@@ -2,6 +2,8 @@ import type { Anchor, AreaComp, GameObj } from 'kaplay'
 
 import { Z } from '../constants'
 
+const POS_INVISIBLE = -9999
+
 export function addTooltip(options: {
   text: string
   width: number
@@ -18,7 +20,7 @@ export function addTooltip(options: {
     tooltip = add([
       rect(options.width, options.height),
       color(BLACK),
-      pos(),
+      pos(POS_INVISIBLE),
       opacity(0.5),
       z(Z.Tooltip),
     ])
