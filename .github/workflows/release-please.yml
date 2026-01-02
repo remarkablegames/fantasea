@@ -78,6 +78,7 @@ jobs:
           app-version: ${{ env.VERSION }}
           window-title: ${{ steps.vars.outputs.window_title }}
           window-fullscreen: true
+          icon-path: public/app-icon.png
         env:
           APPLE_SIGNING_IDENTITY: '-'
 
