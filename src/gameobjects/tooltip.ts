@@ -2,8 +2,6 @@ import type { Anchor, AreaComp, GameObj } from 'kaplay'
 
 import { Z } from '../constants'
 
-const POS_INVISIBLE = -9999
-
 export function addTooltip(options: {
   text: string
   width: number
@@ -20,10 +18,12 @@ export function addTooltip(options: {
     tooltip = add([
       rect(options.width, options.height),
       color(BLACK),
-      pos(POS_INVISIBLE),
+      pos(),
       opacity(0.5),
       z(Z.Tooltip),
     ])
+
+    tooltip.hidden = true
 
     tooltip.add([
       text(options.text, {
@@ -39,6 +39,10 @@ export function addTooltip(options: {
   options.parent.onHoverUpdate(() => {
     if (tooltip?.exists()) {
       tooltip.pos = mousePos()
+
+      if (tooltip.hidden) {
+        tooltip.hidden = false
+      }
 
       if (options.anchor === 'botleft') {
         tooltip.pos.y -= options.height
