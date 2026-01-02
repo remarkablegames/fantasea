@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.15](https://github.com/remarkablegames/fantasea/compare/v1.0.14...v1.0.15) (2026-01-02)
+
+
+### Build System
+
+* generate app icon during release ([40559b6](https://github.com/remarkablegames/fantasea/commit/40559b613d970de46bfa592dff4f5dfe438c93cc))
+
 ## [1.0.14](https://github.com/remarkablegames/fantasea/compare/v1.0.13...v1.0.14) (2026-01-02)
 
 
