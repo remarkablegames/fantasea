@@ -76,7 +76,7 @@ jobs:
         with:
           app-name: ${{ steps.vars.outputs.app_name }}
           app-version: ${{ env.VERSION }}
-          window-title: ${{ steps.vars.outputs.window_title }}
+          window-title: ${{ toJSON(steps.vars.outputs.window_title) }}
           window-fullscreen: true
         env:
           APPLE_SIGNING_IDENTITY: '-'
