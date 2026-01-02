@@ -1,6 +1,6 @@
 {
   "name": "fantasea",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A template for building Kaplay games.",
   "author": "Mark <mark@remarkablemark.org>",
   "scripts": {
