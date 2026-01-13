@@ -16,7 +16,7 @@
   },
   "homepage": "https://remarkablegames.org/fantasea/",
   "dependencies": {
-    "kaplay": "4000.0.0-alpha.25"
+    "kaplay": "4000.0.0-alpha.26"
   },
   "devDependencies": {
     "@commitlint/cli": "20.3.1",
