@@ -31,7 +31,9 @@ export const levels = [
       {
         ...island,
         health: 3,
-        pos: center(),
+        get pos() {
+          return center()
+        },
       },
     ],
     enemies: [
@@ -64,12 +66,16 @@ export const levels = [
       {
         ...island,
         health: 3,
-        pos: center().sub(0, 100),
+        get pos() {
+          return center().sub(0, 100)
+        },
       },
       {
         ...island,
         health: 3,
-        pos: center().add(0, 100),
+        get pos() {
+          return center().add(0, 100)
+        },
       },
     ],
     enemies: [
@@ -102,12 +108,16 @@ export const levels = [
       {
         ...island,
         health: 3,
-        pos: center().sub(200, 0),
+        get pos() {
+          return center().sub(200, 0)
+        },
       },
       {
         ...island,
         health: 3,
-        pos: center().add(200, 0),
+        get pos() {
+          return center().add(200, 0)
+        },
       },
     ],
     enemies: [
@@ -154,17 +164,23 @@ export const levels = [
       {
         ...island,
         health: 3,
-        pos: center().sub(150, -100),
+        get pos() {
+          return center().sub(150, -100)
+        },
       },
       {
         ...blackrock,
         health: 3,
-        pos: center().sub(0, 100),
+        get pos() {
+          return center().sub(0, 100)
+        },
       },
       {
         ...yellowstone,
         health: 3,
-        pos: center().add(150, 100),
+        get pos() {
+          return center().add(150, 100)
+        },
       },
     ],
     enemies: [
@@ -211,22 +227,30 @@ export const levels = [
       {
         ...island,
         health: 3,
-        pos: center().add(-150),
+        get pos() {
+          return center().add(-150)
+        },
       },
       {
         ...blackrock,
         health: 3,
-        pos: center().add(150, -150),
+        get pos() {
+          return center().add(150, -150)
+        },
       },
       {
         ...yellowstone,
         health: 3,
-        pos: center().add(-150, 150),
+        get pos() {
+          return center().add(-150, 150)
+        },
       },
       {
         ...island,
         health: 3,
-        pos: center().add(150),
+        get pos() {
+          return center().add(150)
+        },
       },
     ],
     enemies: [
@@ -287,27 +311,37 @@ export const levels = [
       {
         ...island,
         health: 3,
-        pos: center().sub(200),
+        get pos() {
+          return center().sub(200)
+        },
       },
       {
         ...blackrock,
         health: 3,
-        pos: center().add(200, -200),
+        get pos() {
+          return center().add(200, -200)
+        },
       },
       {
         ...island,
         health: 3,
-        pos: center(),
+        get pos() {
+          return center()
+        },
       },
       {
         ...yellowstone,
         health: 3,
-        pos: center().add(-200, 200),
+        get pos() {
+          return center().add(-200, 200)
+        },
       },
       {
         ...island,
         health: 3,
-        pos: center().add(200),
+        get pos() {
+          return center().add(200)
+        },
       },
     ],
     enemies: [
@@ -368,7 +402,9 @@ export const levels = [
       {
         ...yellowstone,
         health: 20,
-        pos: center(),
+        get pos() {
+          return center()
+        },
       },
     ],
     enemies: [
@@ -429,12 +465,16 @@ export const levels = [
       {
         ...yellowstone,
         health: 6,
-        pos: center().sub(0, 100),
+        get pos() {
+          return center().sub(0, 100)
+        },
       },
       {
         ...blackrock,
         health: 6,
-        pos: center().add(0, 100),
+        get pos() {
+          return center().add(0, 100)
+        },
       },
     ],
     enemies: [
@@ -495,22 +535,30 @@ export const levels = [
       {
         ...yellowstone,
         health: 5,
-        pos: center().sub(0, 100),
+        get pos() {
+          return center().sub(0, 100)
+        },
       },
       {
         ...blackrock,
         health: 5,
-        pos: center().add(0, 100),
+        get pos() {
+          return center().add(0, 100)
+        },
       },
       {
         ...island,
         health: 5,
-        pos: center().sub(250, 0),
+        get pos() {
+          return center().sub(250, 0)
+        },
       },
       {
         ...island,
         health: 5,
-        pos: center().add(250, 0),
+        get pos() {
+          return center().add(250, 0)
+        },
       },
     ],
     enemies: [
@@ -573,27 +621,37 @@ export const levels = [
       {
         ...blackrock,
         health: 5,
-        pos: center().sub(0, 200),
+        get pos() {
+          return center().sub(0, 200)
+        },
       },
       {
         ...blackrock,
         health: 5,
-        pos: center().add(0, 200),
+        get pos() {
+          return center().add(0, 200)
+        },
       },
       {
         ...yellowstone,
         health: 5,
-        pos: center().sub(300, 0),
+        get pos() {
+          return center().sub(300, 0)
+        },
       },
       {
         ...yellowstone,
         health: 5,
-        pos: center().add(300, 0),
+        get pos() {
+          return center().add(300, 0)
+        },
       },
       {
         ...island,
         health: 10,
-        pos: center(),
+        get pos() {
+          return center()
+        },
       },
     ],
     enemies: [
