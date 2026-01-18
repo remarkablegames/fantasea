@@ -1,4 +1,4 @@
-import type { Vec2 } from 'kaplay'
+import type { GameObj, Vec2 } from 'kaplay'
 
 import { Sound } from '../constants'
 
@@ -6,6 +6,7 @@ export function addButton({
   height = 80,
   label,
   onClick,
+  parent = getTreeRoot(),
   position = vec2(),
   radius = 8,
   size,
@@ -15,13 +16,14 @@ export function addButton({
   height?: number
   label: string
   onClick?: () => void
+  parent?: GameObj
+  position?: Vec2
   radius?: number
   size?: number
   width?: number
   zIndex?: number
-  position?: Vec2
 }) {
-  const button = add([
+  const button = parent.add([
     anchor('center'),
     area(),
     color(),
