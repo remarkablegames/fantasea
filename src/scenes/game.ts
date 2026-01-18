@@ -74,7 +74,7 @@ scene(Scene.Game, () => {
     label: 'Start',
     width: 150,
     height: 60,
-    comps: [pos(90, 90)],
+    position: vec2(90),
     onClick() {
       setCursor('default')
       state.temp.start = true

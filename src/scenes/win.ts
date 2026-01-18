@@ -7,16 +7,18 @@ const OFFSET_Y = 70
 scene(Scene.Win, () => {
   debug.timeScale = 1
 
-  const { x, y } = center()
-
-  add([text('You won!', { size: 72 }), anchor('center'), pos(x, y - OFFSET_Y)])
+  add([
+    text('You won!', { size: 72 }),
+    anchor('center'),
+    pos(center().sub(0, OFFSET_Y)),
+  ])
 
   addButton({
     label: 'Restart',
     size: 36,
     width: 200,
     height: 60,
-    comps: [pos(x, y + OFFSET_Y)],
+    position: center().add(0, OFFSET_Y),
     onClick() {
       state.level = 0
       go(Scene.Game)

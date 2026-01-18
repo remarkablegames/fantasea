@@ -1,5 +1,3 @@
-import type { GameObj, PosComp } from 'kaplay'
-
 import { Event, Z } from '../constants'
 import { onRootDestroy } from '../events'
 import { addButton, getRoot } from '.'
@@ -17,7 +15,7 @@ export function addTimeScale() {
       size: 24,
       width: WIDTH,
       height: 40,
-      comps: [pos(getButtonPos(index))],
+      position: getButtonPos(index),
       zIndex: Z.UI,
       onClick() {
         debug.timeScale = Number(speed.replace(/^\D+/g, ''))
@@ -27,10 +25,7 @@ export function addTimeScale() {
   )
 
   const resizeController = onResize(() => {
-    buttons.forEach(
-      (button, index) =>
-        ((button as unknown as GameObj<PosComp>).pos = getButtonPos(index)),
-    )
+    buttons.forEach((button, index) => (button.pos = getButtonPos(index)))
   })
 
   onRootDestroy(() => {

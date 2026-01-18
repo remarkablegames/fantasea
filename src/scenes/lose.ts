@@ -3,9 +3,11 @@ import { state } from '../data'
 import { addButton } from '../gameobjects'
 
 scene(Scene.Lose, () => {
-  const { x, y } = center()
-
-  add([text('You lost', { size: 72 }), anchor('center'), pos(x, y - 100)])
+  add([
+    text('You lost', { size: 72 }),
+    anchor('center'),
+    pos(center().sub(0, 100)),
+  ])
 
   const actions = [
     {
@@ -29,7 +31,7 @@ scene(Scene.Lose, () => {
       size: 36,
       width: 200,
       height: 60,
-      comps: [pos(x, y + 80 * (index + 1))],
+      position: center().add(0, 80 * (index + 1)),
       onClick: action.callback,
     })
   })

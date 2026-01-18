@@ -1,18 +1,17 @@
-import type { Comp } from 'kaplay'
+import type { Vec2 } from 'kaplay'
 
 import { Sound } from '../constants'
 
 export function addButton({
-  comps = [],
   height = 80,
   label,
   onClick,
+  position = vec2(),
   radius = 8,
   size,
   width = 300,
   zIndex = 0,
 }: {
-  comps?: Comp[]
   height?: number
   label: string
   onClick?: () => void
@@ -20,17 +19,18 @@ export function addButton({
   size?: number
   width?: number
   zIndex?: number
+  position?: Vec2
 }) {
   const button = add([
-    rect(width, height, { radius }),
-    area(),
-    scale(),
     anchor('center'),
-    outline(4),
+    area(),
     color(),
     opacity(0.8),
+    outline(4),
+    pos(position),
+    rect(width, height, { radius }),
+    scale(),
     z(zIndex),
-    ...comps,
   ])
 
   button.add([text(label, { size }), anchor('center'), color(BLACK), z(zIndex)])
