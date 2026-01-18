@@ -7,10 +7,10 @@ import { addButton, getRoot } from '.'
 const SPEEDS = ['⏩︎1', '⏩︎2', '⏩︎4', '⏩︎8']
 const WIDTH = 60
 
-export function addTimeScale() {
-  const getButtonPos = (index: number) =>
-    vec2(width() - (WIDTH + 10) * index - 40, 30)
+const getButtonPos = (index: number) =>
+  vec2(width() - (WIDTH + 10) * index - 40, 30)
 
+export function addTimeScale() {
   const buttons = SPEEDS.reverse().map((speed, index) =>
     addButton({
       label: speed,

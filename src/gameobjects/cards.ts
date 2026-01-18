@@ -1,16 +1,18 @@
 import { Sound, Sprite, Z } from '../constants'
 import { type Hero, state } from '../data'
+import { onRootDestroy } from '../events'
 import { getMultiplierText } from '../helpers'
 import { addDraggable, addTooltip } from '.'
 
-const SHORE_OFFSET_Y = 150
 const HERO_OFFSET_X = 35
 const HERO_OFFSET_Y = 15
+
+const getShorePos = () => vec2(0, height() - 150)
 
 export function addCards(heroes: Hero[]) {
   const shore = add([
     sprite(Sprite.Shore, { width: width() }),
-    pos(0, height() - SHORE_OFFSET_Y),
+    pos(getShorePos()),
     z(Z.UI),
   ])
 
@@ -52,5 +54,14 @@ export function addCards(heroes: Hero[]) {
       anchor: 'botleft',
       parent: card,
     })
+  })
+
+  const resizeController = onResize(() => {
+    shore.width = width()
+    shore.pos = getShorePos()
+  })
+
+  onRootDestroy(() => {
+    resizeController.cancel()
   })
 }
