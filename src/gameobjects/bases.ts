@@ -1,5 +1,6 @@
 import { Scene, Tag } from '../constants'
 import { type Base, type BaseMultiplier, state } from '../data'
+import { onRootDestroy } from '../events'
 import { getMultiplierText } from '../helpers'
 import { addDroppable, addHealth, addTooltip, getRoot } from '.'
 
@@ -8,7 +9,7 @@ export type Bases = ReturnType<typeof addBases>
 export function addBases(bases: Base[]) {
   const root = getRoot()
 
-  return bases.map((data) => {
+  const gameObjects = bases.map((data) => {
     const multiplier = getMultiplier(data)
 
     const base = root.add([
@@ -48,6 +49,18 @@ ${getMultiplierText(multiplier)}`,
 
     return base
   })
+
+  const resizeController = onResize(() => {
+    gameObjects.forEach(
+      (gameObject, index) => (gameObject.pos = bases[index].pos),
+    )
+  })
+
+  onRootDestroy(() => {
+    resizeController.cancel()
+  })
+
+  return gameObjects
 }
 
 export function getBases() {
