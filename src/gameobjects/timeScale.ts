@@ -9,7 +9,9 @@ const getButtonPos = (index: number) =>
   vec2(width() - (WIDTH + 10) * index - 40, 30)
 
 export function addTimeScale() {
-  const buttons = SPEEDS.reverse().map((speed, index) =>
+  const speeds = SPEEDS.slice().reverse()
+
+  const buttons = speeds.map((speed, index) =>
     addButton({
       label: speed,
       size: 24,
