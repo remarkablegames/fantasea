@@ -1,32 +1,41 @@
+import type { GameObj, PosComp } from 'kaplay'
+
 import { Event, Z } from '../constants'
+import { onRootDestroy } from '../events'
 import { addButton, getRoot } from '.'
 
+const SPEEDS = ['⏩︎1', '⏩︎2', '⏩︎4', '⏩︎8']
 const WIDTH = 60
-const PADDING = 10
-const OFFSET = 40
 
 export function addTimeScale() {
-  const speeds = ['⏩︎1', '⏩︎2', '⏩︎4', '⏩︎8']
+  const getButtonPos = (index: number) =>
+    vec2(width() - (WIDTH + 10) * index - 40, 30)
 
-  speeds.reverse().forEach((speed, index) => {
+  const buttons = SPEEDS.reverse().map((speed, index) =>
     addButton({
       label: speed,
       size: 24,
       width: WIDTH,
       height: 40,
-      comps: [pos(width() - (WIDTH + PADDING) * index - OFFSET, 30)],
+      comps: [pos(getButtonPos(index))],
       zIndex: Z.UI,
       onClick() {
-        const timeScale = Number(speed.replace(/^\D+/g, ''))
-        triggerTimeScale(timeScale)
+        debug.timeScale = Number(speed.replace(/^\D+/g, ''))
+        getRoot().trigger(Event.TimeScale)
       },
-    })
-  })
-}
+    }),
+  )
 
-function triggerTimeScale(timeScale: number) {
-  debug.timeScale = timeScale
-  getRoot().trigger(Event.TimeScale)
+  const resizeController = onResize(() => {
+    buttons.forEach(
+      (button, index) =>
+        ((button as unknown as GameObj<PosComp>).pos = getButtonPos(index)),
+    )
+  })
+
+  onRootDestroy(() => {
+    resizeController.cancel()
+  })
 }
 
 export function onTimeScale(action: () => void) {
