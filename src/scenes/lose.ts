@@ -2,11 +2,13 @@ import { Scene } from '../constants'
 import { state } from '../data'
 import { addButton } from '../gameobjects'
 
+const getPos = () => center().sub(0, 100)
+
 scene(Scene.Lose, () => {
-  add([
+  const message = add([
     text('You lost', { size: 72 }),
     anchor('center'),
-    pos(center().sub(0, 100)),
+    pos(getPos()),
   ])
 
   const actions = [
@@ -14,6 +16,7 @@ scene(Scene.Lose, () => {
       text: 'Retry',
       callback() {
         go(Scene.Game)
+        resizeController.cancel()
       },
     },
     {
@@ -21,6 +24,7 @@ scene(Scene.Lose, () => {
       callback() {
         state.level = 0
         go(Scene.Game)
+        resizeController.cancel()
       },
     },
   ]
@@ -31,8 +35,13 @@ scene(Scene.Lose, () => {
       size: 36,
       width: 200,
       height: 60,
-      position: center().add(0, 80 * (index + 1)),
+      parent: message,
+      position: vec2(0, 80 * (index + 1) + 40),
       onClick: action.callback,
     })
+  })
+
+  const resizeController = onResize(() => {
+    message.pos = getPos()
   })
 })
