@@ -58,14 +58,13 @@ scene(Scene.Menu, () => {
 
   const menu = add([sprite(Sprite.Menu), anchor('center'), pos(center())])
 
-  const getButtonPos = () => center().add(0, 190)
-
-  const button = addButton({
+  addButton({
     label: 'Play',
     size: 36,
     width: 200,
     height: 60,
-    position: getButtonPos(),
+    parent: menu,
+    position: vec2(0, 190),
     onClick() {
       const music = play(Music.Theme, { loop: true })
       music.volume = 0.6
@@ -76,6 +75,5 @@ scene(Scene.Menu, () => {
 
   const resizeController = onResize(() => {
     menu.pos = center()
-    button.pos = getButtonPos()
   })
 })
