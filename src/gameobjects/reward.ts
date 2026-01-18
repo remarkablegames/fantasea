@@ -1,21 +1,22 @@
 import { Scene, Sound, Sprite } from '../constants'
 import { type BaseMultiplier, rewards, state } from '../data'
+import { onRootDestroy } from '../events'
 import { addModal } from '.'
 
 const PADDING = 20
 const WIDTH = 600
 const HEIGHT = 300
 
+const getMenuCenter = () => center().sub(WIDTH / 2, HEIGHT / 2)
+
 export function addReward() {
   const modal = addModal()
-
-  const menuCenter = center().sub(WIDTH / 2, HEIGHT / 2)
 
   const menu = modal.add([
     rect(WIDTH, HEIGHT),
     color(BLACK),
     outline(4, CYAN),
-    pos(menuCenter.x, height()),
+    pos(getMenuCenter().x, height()),
     opacity(0.8),
     z(modal.z),
   ])
@@ -71,13 +72,23 @@ export function addReward() {
 
   tween(
     menu.pos,
-    menuCenter,
+    getMenuCenter(),
     1,
     (position) => (menu.pos = position),
     easings.easeOutElastic,
   )
 
   play(Sound.Bounce, { detune: 300 })
+
+  const resizeController = onResize(() => {
+    modal.width = width()
+    modal.height = height()
+    menu.pos = getMenuCenter()
+  })
+
+  onRootDestroy(() => {
+    resizeController.cancel()
+  })
 }
 
 interface Reward {
