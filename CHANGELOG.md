@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.16](https://github.com/remarkablegames/fantasea/compare/v1.0.15...v1.0.16) (2026-01-19)
+
+
+### Bug Fixes
+
+* **gameobjects:** fix speeds order in timeScale ([611086d](https://github.com/remarkablegames/fantasea/commit/611086d9808392f145bbe8b29a1a5cf52a5662f6))
+* **gameobjects:** handle resize in bases ([7de7319](https://github.com/remarkablegames/fantasea/commit/7de73197a27be82f9f2c9ec2dc43f9b806cee222))
+* **gameobjects:** handle resize in cards ([88fd758](https://github.com/remarkablegames/fantasea/commit/88fd75833f025a2930a8666c233788410552341b))
+* **gameobjects:** handle resize in reward ([054fb82](https://github.com/remarkablegames/fantasea/commit/054fb8280c06604fc00b89c4203dc97f6104761a))
+* **gameobjects:** handle resize in timeScale ([1d06b58](https://github.com/remarkablegames/fantasea/commit/1d06b582559b1bc713d40279ad4f00f6a092b0ea))
+* **scenes:** handle resize in lose ([27f98b8](https://github.com/remarkablegames/fantasea/commit/27f98b80dc44dcc2432e07f5a33ff65d75800257))
+* **scenes:** handle resize in menu ([9ffcf78](https://github.com/remarkablegames/fantasea/commit/9ffcf7820e472bb8c4462062c0440995e957c70a))
+* **scenes:** handle resize in win ([a5c2735](https://github.com/remarkablegames/fantasea/commit/a5c2735d45f066d104b70aee7f74190487e67f0a))
+
 ## [1.0.15](https://github.com/remarkablegames/fantasea/compare/v1.0.14...v1.0.15) (2026-01-02)
 
 
