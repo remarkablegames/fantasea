@@ -2,15 +2,17 @@ import { Scene } from '../constants'
 import { state } from '../data'
 import { addButton, addConfetti } from '../gameobjects'
 
-const OFFSET_Y = 70
+const OFFSET_Y = 130
+
+const getPos = () => center().sub(0, OFFSET_Y)
 
 scene(Scene.Win, () => {
   debug.timeScale = 1
 
-  add([
+  const message = add([
     text('You won!', { size: 72 }),
     anchor('center'),
-    pos(center().sub(0, OFFSET_Y)),
+    pos(getPos()),
   ])
 
   addButton({
@@ -18,14 +20,20 @@ scene(Scene.Win, () => {
     size: 36,
     width: 200,
     height: 60,
-    position: center().add(0, OFFSET_Y),
+    parent: message,
+    position: vec2(0, OFFSET_Y),
     onClick() {
       state.level = 0
       go(Scene.Game)
+      resizeController.cancel()
     },
   })
 
   addConfetti({ pos: center() })
 
   onMousePress(() => addConfetti({ pos: mousePos() }))
+
+  const resizeController = onResize(() => {
+    message.pos = getPos()
+  })
 })
