@@ -1,5 +1,3 @@
-import type { TimerController } from 'kaplay'
-
 import { Event, Scene } from '../constants'
 import { levels, state } from '../data'
 import { addCollision } from '../events'
@@ -44,16 +42,10 @@ scene(Scene.Game, () => {
 
   const root = addRoot()
 
-  let wait: TimerController | undefined
-  let loop: TimerController | undefined
-
   function setupTimers() {
     if (!state.temp.start) {
       return
     }
-
-    wait?.cancel()
-    loop?.cancel()
 
     state.temp.enemies.forEach(({ timer, total }, index) => {
       root.wait(timer.wait / debug.timeScale, () => {
