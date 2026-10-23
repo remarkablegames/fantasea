@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.1.0](https://github.com/remarkablegames/fantasea/compare/v1.0.16...v1.1.0) (2026-10-23)
+
+
+### Features
+
+* change drag-and-drop to tap-and-place ([c6cb872](https://github.com/remarkablegames/fantasea/commit/c6cb8723c8f9913e4534d3cc5c833866cdc16b59))
+* **public:** update favicon, cover, and manifest.webmanifest ([cd6c747](https://github.com/remarkablegames/fantasea/commit/cd6c747eabe71610a376d3ea74821dd402fbf927))
+
+
+### Bug Fixes
+
+* fix race condition for win/lose and make level 1 easier ([d8b188f](https://github.com/remarkablegames/fantasea/commit/d8b188ff2bb916e6f3c034557d28afdd718d7ade))
+* make level 2 easier ([ada7046](https://github.com/remarkablegames/fantasea/commit/ada70463a587b1805df6bf53c7dbd9b615bcf99e))
+* prevent race condition and make level 7 easier ([893f8ee](https://github.com/remarkablegames/fantasea/commit/893f8eea8df9eec38f0253879a86f8d44030e42b))
+* prevent race condition when draggable already exists ([f7127ca](https://github.com/remarkablegames/fantasea/commit/f7127ca513099dd6db022abda6c9fe9c5255b328))
+
 ## [1.0.16](https://github.com/remarkablegames/fantasea/compare/v1.0.15...v1.0.16) (2026-01-19)
 
 
