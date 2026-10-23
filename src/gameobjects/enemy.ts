@@ -66,6 +66,7 @@ export function addEnemy(data: Data) {
     }
 
     if (currentState.enemiesKilled === currentState.enemiesTotal) {
+      // prevent race condition when lose happens before win
       wait(2, () => {
         addReward()
       })

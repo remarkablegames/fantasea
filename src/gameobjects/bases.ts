@@ -43,6 +43,7 @@ ${getMultiplierText(multiplier)}`,
       state.temp.basesTotal -= 1
 
       if (!state.temp.basesTotal) {
+        // allow animation to finish
         wait(1, () => {
           go(Scene.Lose)
         })

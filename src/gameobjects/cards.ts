@@ -44,7 +44,10 @@ export function addCards(heroes: Hero[]) {
     card.onClick(() => {
       setCursor('grab')
       play(Sound.Drag)
-      addDraggable(data)
+      // prevent race condition when draggable already exists
+      wait(0, () => {
+        addDraggable(data)
+      })
     })
 
     addTooltip({
