@@ -24,9 +24,9 @@ Or download for desktop:
 
 ## How to Play
 
-- Drag your hero and place it on your base
+- Tap your hero and place them at your base
 - Click "Start" to begin the level
-- Defeat the wave of monsters to progress the level
+- Defeat the wave of monsters
 - Select a reward to upgrade your stats
 
 ## Credits

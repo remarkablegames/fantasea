@@ -25,7 +25,7 @@ export function addDraggable(hero: Hero) {
     draggable.color = RED
   })
 
-  draggable.onMouseRelease(() => {
+  draggable.onClick(() => {
     draggable.destroy()
     setCursor('default')
 

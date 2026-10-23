@@ -22,7 +22,7 @@ export const levels = [
   // 1
   {
     hint: {
-      text: 'Drag and drop the hero (bottom) to your base (center) and press "Start"',
+      text: 'Tap the hero at the bottom, place them at the center base, and press "Start"',
       width: 400,
       height: 80,
     },
