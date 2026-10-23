@@ -397,7 +397,7 @@ export const levels = [
       width: 230,
       height: 40,
     },
-    heroes: [archer],
+    heroes: [guard, witch, archer],
     bases: [
       {
         ...yellowstone,
