@@ -1,7 +1,7 @@
 export function generateEnemyPos() {
   const OFFSET = 0
-  let x = 0
-  let y = 0
+  let x: number
+  let y: number
 
   if (randi()) {
     x = randi() ? -OFFSET : width() + OFFSET
