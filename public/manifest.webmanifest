@@ -1,0 +1,22 @@
+{
+  "name": "FantaSea",
+  "short_name": "FantaSea: Heroes on Vacation",
+  "description": "🏖️ Heroes at the beach, but the monsters crash the party.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#d2cbad",
+  "theme_color": "#25c7f8",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "304x304"
+    },
+    {
+      "src": "app-icon.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    }
+  ]
+}
