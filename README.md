@@ -11,10 +11,16 @@
 
 This game was made for [GitHub Game Off 2025](https://itch.io/jam/game-off-2025), which the theme was **WAVES**.
 
-Play the game on:
+Play in your browser:
 
 - [itch.io](https://remarkablegames.itch.io/fantasea)
 - [remarkablegames](https://remarkablegames.org/fantasea)
+
+Or download for desktop:
+
+- [Windows](https://github.com/remarkablegames/fantasea/releases/latest/download/windows.zip)
+- [macOS](https://github.com/remarkablegames/fantasea/releases/latest/download/macos.zip)
+- [Linux](https://github.com/remarkablegames/fantasea/releases/latest/download/linux.zip)
 
 ## How to Play
 
@@ -71,12 +77,6 @@ Install the dependencies:
 npm install
 ```
 
-Update the environment variables:
-
-```sh
-cp .env .env.local
-```
-
 ## Available Scripts
 
 In the project directory, you can run:
@@ -105,4 +105,4 @@ Your game is ready to be deployed!
 
 Builds the game and packages it into a Zip file in the `dist` folder.
 
-Your game can be uploaded to your server, [Itch.io](https://itch.io/), [Newgrounds](https://www.newgrounds.com/), etc.
+Your game can be uploaded to your server, [itch.io](https://itch.io/), etc.

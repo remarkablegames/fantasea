@@ -22,31 +22,12 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="src/style.css" />
 
     <title>FantaSea: Heroes on Vacation | remarkablegames</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to play this game.</noscript>
-
-    <script type="module">
-      import kaplay from 'kaplay'
-      kaplay({ background: '#5cc6ba' })
-    </script>
-    <script type="module" src="src/index.ts"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script>
-      window['ga-disable-%VITE_GOOGLE_ANALYTICS_ID%'] = %DEV%;
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function () {
-        dataLayer.push(arguments);
-      };
-      gtag('js', new Date());
-      gtag('config', '%VITE_GOOGLE_ANALYTICS_ID%');
-    </script>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=%VITE_GOOGLE_ANALYTICS_ID%"
-    ></script>
+    <script type="module" src="src/main.ts"></script>
   </body>
 </html>
