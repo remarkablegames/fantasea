@@ -1,6 +1,6 @@
 {
-  "name": "FantaSea",
-  "short_name": "FantaSea: Heroes on Vacation",
+  "name": "FantaSea: Heroes on Vacation",
+  "short_name": "FantaSea",
   "description": "🏖️ Heroes at the beach, but the monsters crash the party.",
   "start_url": "./",
   "display": "standalone",
