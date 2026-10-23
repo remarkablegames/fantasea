@@ -9,7 +9,7 @@
 
 🏖️ **FantaSea: Heroes on Vacation** is a tower defense game where you assign heroes on the beach to combat waves of monsters.
 
-This game was made for [GitHub Game Off 2025](https://itch.io/jam/game-off-2025), which the theme was **WAVES**.
+This game was made for [GitHub Game Off 2025](https://itch.io/jam/game-off-2025), which the theme was **WAVES**. Read the [blog post](https://remarkablegames.org/posts/fantasea/).
 
 Play in your browser:
 
