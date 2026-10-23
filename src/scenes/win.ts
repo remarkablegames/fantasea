@@ -31,7 +31,9 @@ scene(Scene.Win, () => {
 
   addConfetti({ pos: center() })
 
-  onMousePress(() => addConfetti({ pos: mousePos() }))
+  onMousePress(() => {
+    addConfetti({ pos: mousePos() })
+  })
 
   const resizeController = onResize(() => {
     message.pos = getPos()

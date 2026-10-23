@@ -14,14 +14,14 @@ scene(Scene.Lose, () => {
   const actions = [
     {
       text: 'Retry',
-      callback() {
+      callback: () => {
         go(Scene.Game)
         resizeController.cancel()
       },
     },
     {
       text: 'Restart',
-      callback() {
+      callback: () => {
         state.level = 0
         go(Scene.Game)
         resizeController.cancel()

@@ -7,17 +7,20 @@ export type Attack = ReturnType<typeof addAttack>
 
 export function addAttack(hero: Hero) {
   const enemy = getClosestEnemy(hero)
-
   if (!enemy) {
     return
   }
 
-  const { multiplier } = hero
-  const heroPos = hero.screenPos()!
+  const heroPos = hero.screenPos()
+  if (!heroPos) {
+    return
+  }
+
   const direction = enemy.pos.sub(heroPos).unit()
   let data = beachball
 
-  switch (hero.sprite) {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-assignment
+  switch (hero.sprite as Sprite) {
     case Sprite.Archer:
       data = arrow
       play(Sound.Swish, { volume: 0.8 })
@@ -42,23 +45,24 @@ export function addAttack(hero: Hero) {
     }),
     area({ shape: data.shape }),
     anchor('center'),
-    scale(multiplier.scale),
+    scale(hero.multiplier.scale),
     rotate(),
-    health(data.health * multiplier.health),
-    lifespan((data.lifespan * multiplier.lifespan) / debug.timeScale, {
+    health(data.health * hero.multiplier.health),
+    lifespan((data.lifespan * hero.multiplier.lifespan) / debug.timeScale, {
       fade: 0.5 / debug.timeScale,
     }),
     opacity(),
     offscreen({ destroy: true }),
     Tag.Attack,
     {
-      damage: data.damage * multiplier.damage,
+      damage: data.damage * hero.multiplier.damage,
       direction,
-      speed: data.speed * multiplier.speed,
+      speed: data.speed * hero.multiplier.speed,
     },
   ])
 
-  switch (attack.sprite) {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-assignment
+  switch (attack.sprite as Sprite) {
     case Sprite.Arrow:
       attack.tag(Tag.Sharp)
       attack.angle = enemy.pos.angle(heroPos) + 90
@@ -84,7 +88,8 @@ export function addAttack(hero: Hero) {
   attack.onDeath(() => {
     attack.destroy()
 
-    switch (attack.sprite) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-assignment
+    switch (attack.sprite as Sprite) {
       case Sprite.Beachball:
         play(Sound.Pop, { volume: 0.5 })
         break

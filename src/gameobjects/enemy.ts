@@ -49,8 +49,14 @@ export function addEnemy(data: Data) {
 
     const currentState = state.temp
     const enemyState = currentState.enemies.find(
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison
       ({ sprite }) => sprite === enemy.sprite,
-    )!
+    )
+
+    if (!enemyState) {
+      return
+    }
+
     enemyState.total -= 1
     currentState.enemiesKilled += 1
     root.trigger(Event.EnemyCounter)
@@ -61,7 +67,9 @@ export function addEnemy(data: Data) {
 
     if (currentState.enemiesKilled === currentState.enemiesTotal) {
       state.level += 1
-      wait(1, () => addReward())
+      wait(1, () => {
+        addReward()
+      })
     }
   })
 

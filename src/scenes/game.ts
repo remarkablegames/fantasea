@@ -21,7 +21,8 @@ scene(Scene.Game, () => {
   const level = levels[state.level]
 
   if (!level) {
-    return go(Scene.Win)
+    go(Scene.Win)
+    return
   }
 
   addBackground()

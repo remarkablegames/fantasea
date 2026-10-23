@@ -10,9 +10,9 @@ export function addTooltip(options: {
   anchor?: Anchor
   padding?: number
 }) {
-  const padding = options.padding || 10
+  const padding = options.padding ?? 10
 
-  let tooltip: GameObj | undefined
+  let tooltip = add([pos()])
 
   options.parent.onHover(() => {
     tooltip = add([

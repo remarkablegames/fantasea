@@ -6,7 +6,7 @@ import { getRoot } from '.'
 let particleSpriteData: SpriteData
 
 export function addSplash(position: Vec2, direction: Vec2) {
-  particleSpriteData = particleSpriteData || getSprite(Sprite.Particle)!.data!
+  particleSpriteData = particleSpriteData || getSprite(Sprite.Particle)?.data
   const root = getRoot()
 
   const splash = root.add([
@@ -33,7 +33,9 @@ export function addSplash(position: Vec2, direction: Vec2) {
   ])
 
   splash.emit(10)
-  splash.onEnd(() => splash.destroy())
+  splash.onEnd(() => {
+    splash.destroy()
+  })
 
   return splash
 }

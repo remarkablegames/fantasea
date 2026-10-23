@@ -11,7 +11,11 @@ const DEF_SPIN = [2, 8]
 const DEF_SATURATION = 0.7
 const DEF_LIGHTNESS = 0.6
 
-const sample = (s: unknown) => (typeof s === 'function' ? s() : s)
+type SampleInput<T> = T | (() => T)
+
+function sample<T>(s: SampleInput<T>): T {
+  return typeof s === 'function' ? (s as () => T)() : s
+}
 
 export function addConfetti(
   opt: {
@@ -29,7 +33,7 @@ export function addConfetti(
 ) {
   for (let i = 0; i < (opt.count ?? DEF_COUNT); i++) {
     const p = add([
-      pos(sample(opt.pos ?? vec2(0, 0))),
+      pos(sample(opt.pos ?? vec2())),
       choose([rect(rand(5, 20), rand(5, 20)), circle(rand(3, 10))]),
       color(
         sample(opt.color ?? hsl2rgb(rand(0, 1), DEF_SATURATION, DEF_LIGHTNESS)),

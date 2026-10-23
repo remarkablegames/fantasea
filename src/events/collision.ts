@@ -36,7 +36,8 @@ export function addCollision() {
       enemy.hp -= attack.damage
       attack.hp -= 1
 
-      switch (attack.sprite) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-assignment
+      switch (attack.sprite as Sprite) {
         case Sprite.Arrow:
           play(Sound.Arrow, { volume: 0.5 })
           break

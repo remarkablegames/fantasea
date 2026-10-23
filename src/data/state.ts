@@ -1,7 +1,7 @@
 import { Sprite } from '../constants'
 import type { BaseMultiplier, Enemies } from '../data'
 
-const key = 'remarkablegames.fantasea'
+const KEY = 'org.remarkablegames.fantasea'
 
 class State {
   temp = {
@@ -43,11 +43,11 @@ class State {
 
   private persist: ReturnType<typeof this.init> = {
     ...this.init(),
-    ...JSON.parse(getData(key)!),
+    ...(JSON.parse(String(getData(KEY))) as ReturnType<typeof this.init>),
   }
 
   private save() {
-    setData(key, JSON.stringify(this.persist))
+    setData(KEY, JSON.stringify(this.persist))
   }
 
   get level() {
@@ -55,7 +55,7 @@ class State {
   }
 
   set level(level) {
-    if (level === 0) {
+    if (level < 1) {
       this.persist = this.init()
     } else {
       this.persist.level = level
@@ -70,6 +70,7 @@ class State {
   set multiplier(data) {
     Object.entries(data).forEach(([sprite, multiplier]) => {
       Object.entries(multiplier).forEach(([key, value]) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-assignment
         this.persist.multiplier[sprite as Sprite][
           key as keyof BaseMultiplier
         ] *= value

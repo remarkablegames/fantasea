@@ -32,7 +32,7 @@ export function addBases(bases: Base[]) {
     addTooltip({
       width: 240,
       height: 160,
-      text: `HP: ${data.health} (Max)
+      text: `HP: ${String(data.health)} (Max)
 ${getMultiplierText(multiplier)}`,
       parent: base,
     })
@@ -43,7 +43,9 @@ ${getMultiplierText(multiplier)}`,
       state.temp.basesTotal -= 1
 
       if (!state.temp.basesTotal) {
-        wait(1, () => go(Scene.Lose))
+        wait(1, () => {
+          go(Scene.Lose)
+        })
       }
     })
 
@@ -64,9 +66,7 @@ ${getMultiplierText(multiplier)}`,
 }
 
 export function getBases() {
-  const root = getRoot()
-  const bases = root.get(Tag.Base) as Bases
-
+  const bases: Bases = getRoot().get(Tag.Base)
   return bases.filter((base) => !base.dead)
 }
 

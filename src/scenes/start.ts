@@ -10,7 +10,7 @@ import { state } from '../data'
 export function start() {
   if (import.meta.env.DEV) {
     const level = parseInt(
-      new URLSearchParams(location.search).get('level') || '',
+      new URLSearchParams(location.search).get('level') ?? '',
     )
 
     if (level > 0) {

@@ -8,7 +8,7 @@
     "clean": "rm -rf dist",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "lint:tsc": "tsc --noEmit",
+    "lint:tsc": "tsc --project tsconfig.app.json",
     "prepare": "husky",
     "preview": "vite preview",
     "start": "vite --open"
@@ -21,6 +21,7 @@
     "@commitlint/cli": "21.2.4",
     "@commitlint/config-conventional": "21.2.4",
     "@eslint/js": "10.0.1",
+    "@types/node": "26.6.5",
     "eslint": "10.13.0",
     "eslint-plugin-prettier": "5.5.7",
     "eslint-plugin-simple-import-sort": "14.0.0",

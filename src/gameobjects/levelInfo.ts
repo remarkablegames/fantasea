@@ -4,7 +4,7 @@ import { getRoot } from '.'
 
 export function addLevelInfo() {
   const levelInfo = add([
-    text(`Wave: ${state.level + 1}`),
+    text(`Wave: ${String(state.level + 1)}`),
     pos(12, 12),
     z(Z.UI),
   ])
@@ -18,7 +18,7 @@ export function addLevelInfo() {
 
   getRoot().on(Event.EnemyCounter, () => {
     enemiesCounter.opacity = 1
-    enemiesCounter.text = `Enemies: ${state.temp.enemiesKilled}/${state.temp.enemiesTotal}`
+    enemiesCounter.text = `Enemies: ${String(state.temp.enemiesKilled)}/${String(state.temp.enemiesTotal)}`
   })
 
   return levelInfo

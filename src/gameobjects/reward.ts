@@ -101,7 +101,7 @@ function getRewards(): Reward[] {
   const multipliers = chooseMultiple(rewards.multipliers, 1)
   const entities = chooseMultiple(rewards.entities, 3)
 
-  return multipliers.reduce(
+  return multipliers.reduce<Reward[]>(
     (accumulator, { text, multiplier }) =>
       accumulator.concat(
         entities.map(({ sprite }) => ({
@@ -110,6 +110,6 @@ function getRewards(): Reward[] {
           text,
         })),
       ),
-    [] as Reward[],
+    [],
   )
 }
