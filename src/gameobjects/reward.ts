@@ -66,6 +66,7 @@ export function addReward() {
       }
       play(Sound.Click)
       modal.destroy()
+      state.level += 1
       go(Scene.Game)
     })
   })

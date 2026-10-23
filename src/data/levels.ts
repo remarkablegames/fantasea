@@ -38,7 +38,7 @@ export const levels = [
     ],
     enemies: [
       {
-        total: 3,
+        total: 2,
         enemy: {
           ...slime,
           health: 1,

@@ -66,7 +66,6 @@ export function addEnemy(data: Data) {
     }
 
     if (currentState.enemiesKilled === currentState.enemiesTotal) {
-      state.level += 1
       wait(1, () => {
         addReward()
       })
