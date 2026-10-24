@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.1](https://github.com/remarkablegames/fantasea/compare/v1.1.0...v1.1.1) (2026-10-24)
+
+
+### Bug Fixes
+
+* **public:** swap name and short_name in manifest.webmanifest ([e0ca501](https://github.com/remarkablegames/fantasea/commit/e0ca50193114226504971750ab18e08f8f2ecb21))
+
+
+### Performance Improvements
+
+* **sprites:** compress background.png and menu.png ([a5960f6](https://github.com/remarkablegames/fantasea/commit/a5960f6d97fb752a941167d974489b9ca98c5d2d))
+
 ## [1.1.0](https://github.com/remarkablegames/fantasea/compare/v1.0.16...v1.1.0) (2026-10-23)
 
 
