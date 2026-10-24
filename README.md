@@ -13,6 +13,7 @@ This game was made for [GitHub Game Off 2025](https://itch.io/jam/game-off-2025)
 
 Play in your browser:
 
+- [Wavedash](https://wavedash.com/games/fantasea)
 - [itch.io](https://remarkablegames.itch.io/fantasea)
 - [remarkablegames](https://remarkablegames.org/fantasea)
 
