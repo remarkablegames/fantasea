@@ -30,16 +30,17 @@ scene(Scene.Game, () => {
 
   state.temp.start = false
   state.temp.basesTotal = level.bases.length
-  state.temp.enemies = level.enemies.map(({ total, enemy, timer }) => ({
-    total,
-    sprite: enemy.sprite,
-    timer: { ...timer },
-  }))
   state.temp.enemiesKilled = 0
   state.temp.enemiesTotal = level.enemies.reduce(
     (sum, { total }) => sum + total,
     0,
   )
+  state.temp.enemies = level.enemies.map(({ total, enemy, timer }) => ({
+    spawned: 0,
+    sprite: enemy.sprite,
+    timer: { ...timer },
+    total,
+  }))
 
   const root = addRoot()
 
@@ -48,14 +49,14 @@ scene(Scene.Game, () => {
       return
     }
 
-    state.temp.enemies.forEach(({ timer, total }, index) => {
+    state.temp.enemies.forEach(({ timer, total, spawned }, index) => {
       root.wait(timer.wait / debug.timeScale, () => {
         timer.wait = 0
 
         root.loop(
           timer.interval / debug.timeScale,
           () => addEnemy(level.enemies[index].enemy),
-          total,
+          total - spawned,
         )
       })
     })

@@ -3,10 +3,15 @@ import type { BaseMultiplier, Enemies } from '../data'
 
 const KEY = 'org.remarkablegames.fantasea'
 
+type Enemy = Pick<Enemies[0], 'total' | 'timer'> & {
+  sprite: Sprite
+  spawned: number
+}
+
 class State {
   temp = {
     basesTotal: 0,
-    enemies: [] as (Pick<Enemies[0], 'total' | 'timer'> & { sprite: Sprite })[],
+    enemies: [] as Enemy[],
     enemiesKilled: 0,
     enemiesTotal: 0,
     start: false,

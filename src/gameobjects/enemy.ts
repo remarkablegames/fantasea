@@ -29,6 +29,18 @@ export function addEnemy(data: Data) {
 
   addHealth(enemy)
 
+  const enemyState = state.temp.enemies.find(
+    (enemy) => enemy.sprite === data.sprite,
+  )
+
+  if (enemyState) {
+    enemyState.spawned += 1
+
+    if (enemyState.spawned > enemyState.total) {
+      enemy.destroy()
+    }
+  }
+
   enemy.onUpdate(() => {
     if (enemy.base?.dead) {
       enemy.base = getRandomBase()
@@ -47,25 +59,14 @@ export function addEnemy(data: Data) {
     addKaboom(enemy.pos)
     play(Sound.Grunt, { detune: randi(0, 6) * 100 })
 
-    const currentState = state.temp
-    const enemyState = currentState.enemies.find(
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison
-      ({ sprite }) => sprite === enemy.sprite,
-    )
-
-    if (!enemyState) {
-      return
-    }
-
-    enemyState.total -= 1
-    currentState.enemiesKilled += 1
+    state.temp.enemiesKilled += 1
     root.trigger(Event.EnemyCounter)
 
     if (!getBases().length) {
       return
     }
 
-    if (currentState.enemiesKilled === currentState.enemiesTotal) {
+    if (state.temp.enemiesKilled === state.temp.enemiesTotal) {
       // prevent race condition when lose happens before win
       wait(2, () => {
         addReward()
