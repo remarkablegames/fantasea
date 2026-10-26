@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/remarkablegames/fantasea/compare/v1.1.1...v1.1.2) (2026-10-26)
+
+
+### Bug Fixes
+
+* ensure the right number of enemies are spawned when speed changes ([11b746f](https://github.com/remarkablegames/fantasea/commit/11b746fa440c21b18916af91f3ad7a64fd9311cd))
+
 ## [1.1.1](https://github.com/remarkablegames/fantasea/compare/v1.1.0...v1.1.1) (2026-10-24)
 
 
